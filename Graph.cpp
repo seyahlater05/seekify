@@ -8,8 +8,9 @@
 #include <algorithm>
 #include <cmath>
 #include <fstream>
+#include <ranges>
 
-vector<float> Graph::GetFeatureVector(const Song& song) const {
+vector<float> Graph::GetFeatureVector(const Song& song) {
     return {
             song.danceability,
             song.energy,
@@ -22,10 +23,10 @@ vector<float> Graph::GetFeatureVector(const Song& song) const {
     };
 }
 
-float Graph::EuclideanDistance(const vector<float>& a, const vector<float>& b) const {
+float Graph::EuclideanDistance(const vector<float>& a, const vector<float>& b) {
     float sum = 0.0f;
     for (size_t i = 0; i < a.size(); ++i) {
-        float diff = a[i] - b[i];
+        const float diff = a[i] - b[i];
         sum += diff * diff;
     }
     return sqrt(sum);
@@ -41,7 +42,7 @@ const vector<Song>& Graph::GetSongsByGenre(const string& genre) const {
 
 vector<string> Graph::GetAllGenres() const {
     vector<string> genres;
-    for (const auto& [key, _] : genreMap) {
+    for (const auto& key : genreMap | std::views::keys) {
         genres.push_back(key);
     }
     return genres;
@@ -89,7 +90,7 @@ void Graph::LoadFromCSV(ifstream& file) {
         song.track_length = stoi(result[5]);
 
         temp = result[6];
-        transform(temp.begin(), temp.end(), temp.begin(), ::tolower);
+        ranges::transform(temp, temp.begin(), ::tolower);
         istringstream(temp) >> boolalpha >> song.potty_words;
 
         song.danceability = stof(result[7]);
@@ -136,8 +137,7 @@ void Graph::LoadGenreFromCSV(std::ifstream& file, const std::string& target_genr
         std::string current;
         bool inQuotes = false;
         for (size_t i = 0; i < rest.size(); ++i) {
-            char c = rest[i];
-            if (c == '"') {
+            if (char c = rest[i]; c == '"') {
                 if (inQuotes && i + 1 < rest.size() && rest[i + 1] == '"') {
                     current += '"';
                     ++i;
@@ -156,7 +156,7 @@ void Graph::LoadGenreFromCSV(std::ifstream& file, const std::string& target_genr
         if (fields.size() < 20) continue;
 
         std::string genre = fields[19];
-        std::transform(genre.begin(), genre.end(), genre.begin(), ::tolower);
+        ranges::transform(genre, genre.begin(), ::tolower);
 
         if (genre != target_genre) continue;
 
@@ -169,7 +169,7 @@ void Graph::LoadGenreFromCSV(std::ifstream& file, const std::string& target_genr
         song.track_length  = std::stoi(fields[5]);
         {
             std::string potty = fields[6];
-            std::transform(potty.begin(), potty.end(), potty.begin(), ::tolower);
+            ranges::transform(potty, potty.begin(), ::tolower);
             std::istringstream(potty) >> std::boolalpha >> song.potty_words;
         }
         song.danceability     = std::stof(fields[7]);
