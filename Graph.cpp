@@ -9,6 +9,7 @@
 #include <cmath>
 #include <fstream>
 #include <ranges>
+#include <set>
 
 vector<float> Graph::GetFeatureVector(const Song& song) {
     return {
@@ -204,4 +205,43 @@ void Graph::LoadGenreFromCSV(std::ifstream& file, const std::string& target_genr
     }
 
     adjacencyMatrices[target_genre] = std::move(matrix);
+}
+
+set<string> Graph::FindGenres(ifstream& file) {
+    string temp;
+    getline(file, temp);
+    set<string> genres;
+
+    while (file.is_open() && file.peek() != EOF) {
+        getline(file, temp, ',');
+
+        bool inQuotes = false;
+        string line;
+        getline(file, line);
+
+        string current;
+        vector<string> result;
+        for (size_t i = 0; i < line.length(); ++i) {
+            if (const char c = line[i]; c == '"') {
+                if (inQuotes && i + 1 < line.size() && line[i + 1] == '"') {
+                    current += '"';
+                    ++i;
+                } else {
+                    inQuotes = !inQuotes;
+                }
+            } else if (c == ',' && !inQuotes) {
+                result.push_back(current);
+                current.clear();
+            } else {
+                current += c;
+            }
+        }
+        result.push_back(current);
+
+        if (result.size() < 20) continue;
+
+        genres.insert(result[19]);
+    }
+
+    return genres;
 }

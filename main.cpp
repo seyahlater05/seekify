@@ -23,12 +23,12 @@ Fl_Round_Button* toggle_off;
 // Start button callback
 void start_callback(Fl_Widget*, void*) {
     // Get selected menu item
-    int selection = menu_choice->value();
+    const int selection = menu_choice->value();
     const Fl_Menu_Item* menu = menu_choice->menu();
     const char* selected = menu[selection].label();
 
     // Get toggle state
-    const char* state = "OFF";
+    auto state = "OFF";
     if (toggle_on->value()) state = "ON";
 
     // Update output
@@ -42,7 +42,7 @@ void start_callback(Fl_Widget*, void*) {
 // Toggle buttons callback
 void toggle_callback(Fl_Widget*, void*) {
     // Determine active state
-    const char* state = "OFF";
+    auto state = "OFF";
     if (toggle_on->value()) state = "ON";
 
     std::string current = output_box->value() ? output_box->value() : "";
@@ -61,23 +61,21 @@ int main(int argc, char** argv) {
     string genre;
     Graph graph;
     graph.LoadGenreFromCSV(file, genre); // Only loads songs from that genre
-    vector<string> genre_list = graph.GetAllGenres();
+    const vector<string> genre_list = graph.GetAllGenres();
 
-    const auto& songs = graph.GetSongsByGenre(genre);
-    const auto& matrix = graph.GetAdjacencyMatrix(genre);
     // Create main window
-    Fl_Window* window = new Fl_Window(400, 300, "Control Panel");
+    const auto window = new Fl_Window(400, 300, "Control Panel");
     window->color(FL_WHITE);
 
     // Create drop-down menu
     menu_choice = new Fl_Choice(20, 20, 150, 30, "Options:");
-    for(string s : genre_list) {
+    for(const string& s : genre_list) {
         menu_choice->add(s.c_str());
     }
     menu_choice->value(0);  // Set default selection
 
     // Create start button
-    Fl_Button* start_btn = new Fl_Button(200, 20, 80, 30, "Start");
+    auto* start_btn = new Fl_Button(200, 20, 80, 30, "Start");
     start_btn->callback(start_callback);
 
     // Create toggle buttons (radio group)

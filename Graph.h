@@ -3,6 +3,7 @@
 //
 
 #pragma once
+#include <set>
 #include <string>
 #include <vector>
 #include <unordered_map>
@@ -32,4 +33,6 @@ public:
     const vector<vector<float>>& GetAdjacencyMatrix(const string& genre) const;
     const vector<Song>& GetSongsByGenre(const string& genre) const;
     vector<string> GetAllGenres() const;
+
+    static set<string> FindGenres(ifstream& file);
 };
