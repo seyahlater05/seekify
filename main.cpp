@@ -10,6 +10,7 @@
 #include <fstream>
 #include <set>
 #include <random>
+#include <ranges>
 
 #include "Graph.h"
 using namespace std;
@@ -23,12 +24,12 @@ Fl_Round_Button* toggle_off;
 // Start button callback
 void start_callback(Fl_Widget*, void*) {
     // Get selected menu item
-    int selection = menu_choice->value();
+    const int selection = menu_choice->value();
     const Fl_Menu_Item* menu = menu_choice->menu();
     const char* selected = menu[selection].label();
 
     // Get toggle state
-    const char* state = "OFF";
+    auto state = "OFF";
     if (toggle_on->value()) state = "ON";
 
     // Update output
@@ -42,7 +43,7 @@ void start_callback(Fl_Widget*, void*) {
 // Toggle buttons callback
 void toggle_callback(Fl_Widget*, void*) {
     // Determine active state
-    const char* state = "OFF";
+    auto state = "OFF";
     if (toggle_on->value()) state = "ON";
 
     std::string current = output_box->value() ? output_box->value() : "";
@@ -54,7 +55,7 @@ void toggle_callback(Fl_Widget*, void*) {
 
 int main(int argc, char** argv) {
     // Create main window
-    Fl_Window* window = new Fl_Window(400, 300, "Control Panel");
+    auto window = new Fl_Window(400, 300, "Control Panel");
     window->color(FL_WHITE);
 
     // Create drop-down menu
@@ -65,7 +66,7 @@ int main(int argc, char** argv) {
     menu_choice->value(0);  // Set default selection
 
     // Create start button
-    Fl_Button* start_btn = new Fl_Button(200, 20, 80, 30, "Start");
+    auto start_btn = new Fl_Button(200, 20, 80, 30, "Start");
     start_btn->callback(start_callback);
 
     // Create toggle buttons (radio group)
@@ -131,13 +132,13 @@ int main(int argc, char** argv) {
         }
     }
 
-    sort(distances.begin(), distances.end());
+    ranges::sort(distances);
 
     cout << "9 closest songs:\n";
     int count = 0;
-    for (const auto& [dist, index] : distances) {
+    for (int index : distances | std::views::values) {
         string key = songs[index].track_name + songs[index].artists;
-        if (seen.count(key)) continue;
+        if (seen.contains(key)) continue;
 
         seen.insert(key);
         cout << " - " << songs[index].track_name << " by " << songs[index].artists << "\n";
