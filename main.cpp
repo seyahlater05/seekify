@@ -11,11 +11,12 @@
 #include "FL/Fl_Input.H"
 #include "FL/Fl_Output.H"
 #include <string>
+#include <ranges>
 #include <algorithm>
 
 // Callback function to reverse the input text
 void reverse_input_cb(Fl_Widget* w, void* data) {
-    auto* input = dynamic_cast<Fl_Input*>(w);
+    const auto* input = dynamic_cast<Fl_Input*>(w);
     auto* output = static_cast<Fl_Output*>(data);
 
     std::string text = input->value();
@@ -64,7 +65,7 @@ int main(int argc, char** argv) {
     // Pick a random song
     random_device rd;
     mt19937 gen(rd());
-    uniform_int_distribution<> dist(0, songs.size() - 1);
+    uniform_int_distribution<> dist(0, static_cast<int>(songs.size() - 1));
     int startIndex = dist(gen);
 
     cout << "\nStarting song: " << songs[startIndex].track_name << " by " << songs[startIndex].artists << "\n\n";
@@ -80,11 +81,11 @@ int main(int argc, char** argv) {
         }
     }
 
-    sort(distances.begin(), distances.end());
+    ranges::sort(distances);
 
     cout << "9 closest songs:\n";
     int count = 0;
-    for (const auto& [dist, index] : distances) {
+    for (int index : distances | std::views::values) {
         string key = songs[index].track_name + songs[index].artists;
         if (seen.contains(key)) continue;
 
