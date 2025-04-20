@@ -10,8 +10,8 @@
 #include <fstream>
 #include <set>
 #include <random>
-
 #include "Graph.h"
+#include <FL/Fl_Select_Browser.H>
 using namespace std;
 
 // Widget pointers
@@ -28,7 +28,7 @@ void start_callback(Fl_Widget*, void*) {
     const char* selected = menu[selection].label();
 
     // Get toggle state
-    auto state = "OFF";
+    auto state = "Random Walk";
     if (toggle_on->value()) state = "ON";
 
     // Update output
@@ -60,27 +60,31 @@ int main(int argc, char** argv) {
     }
     string genre;
     Graph graph;
-    graph.LoadGenreFromCSV(file, genre); // Only loads songs from that genre
-    const vector<string> genre_list = graph.GetAllGenres();
+    set<string> genre_list = graph.FindGenres(file);
 
     // Create main window
-    const auto window = new Fl_Window(400, 300, "Control Panel");
-    window->color(FL_WHITE);
+    int w = 700;
+    int h = 900;
+    const auto window = new Fl_Window(w, h, "Control Panel");
+    window->color(FL_LIGHT1);
 
     // Create drop-down menu
-    menu_choice = new Fl_Choice(20, 20, 150, 30, "Options:");
+    Fl_Select_Browser* browser = new Fl_Select_Browser(50, 50, 200, 200);
+    browser->has_scrollbar(Fl_Browser_::VERTICAL);
     for(const string& s : genre_list) {
         menu_choice->add(s.c_str());
     }
+    menu_choice->menu()->set_max_visible_items(10); // Show max 10 items at once
+    menu_choice->menu()->menu_button_width(15);
     menu_choice->value(0);  // Set default selection
 
     // Create start button
-    auto* start_btn = new Fl_Button(200, 20, 80, 30, "Start");
+    auto* start_btn = new Fl_Button(22, 580, 80, 30, "Start");
     start_btn->callback(start_callback);
 
     // Create toggle buttons (radio group)
-    toggle_on = new Fl_Round_Button(300, 20, 80, 30, "ON");
-    toggle_off = new Fl_Round_Button(300, 60, 80, 30, "OFF");
+    toggle_on = new Fl_Round_Button(400, 20, 80, 30, "ON");
+    toggle_off = new Fl_Round_Button(400, 40, 80, 30, "OFF");
 
     // Configure as radio buttons
     toggle_on->type(FL_RADIO_BUTTON);
@@ -92,7 +96,7 @@ int main(int argc, char** argv) {
     toggle_off->callback(toggle_callback);
 
     // Create output text box
-    output_box = new Fl_Multiline_Output(20, 100, 360, 170);
+    output_box = new Fl_Multiline_Output(20, 75, 300, 500);
     output_box->textfont(FL_COURIER);
     output_box->textsize(12);
     output_box->value("System Ready\n\n");  // Initial message
