@@ -1,45 +1,94 @@
+#include <algorithm>
+#include <FL/Fl.H>
+#include <FL/Fl_Window.H>
+#include <FL/Fl_Choice.H>
+#include <FL/Fl_Button.H>
+#include <FL/Fl_Round_Button.H>
+#include <FL/Fl_Multiline_Output.H>
+#include <string>
 #include <iostream>
 #include <fstream>
-#include <algorithm>
-#include <random>
 #include <set>
+#include <random>
+
 #include "Graph.h"
-#include "FL/Fl.h"
-#include "FL/Fl_Window.H"
-#include "FL/Fl.H"
-#include "FL/Fl_Window.H"
-#include "FL/Fl_Input.H"
-#include "FL/Fl_Output.H"
-#include <string>
-#include <ranges>
-#include <algorithm>
-
-// Callback function to reverse the input text
-void reverse_input_cb(Fl_Widget* w, void* data) {
-    const auto* input = dynamic_cast<Fl_Input*>(w);
-    auto* output = static_cast<Fl_Output*>(data);
-
-    std::string text = input->value();
-    ranges::reverse(text);
-    output->value(text.c_str());
-}
 using namespace std;
 
+// Widget pointers
+Fl_Choice* menu_choice;
+Fl_Multiline_Output* output_box;
+Fl_Round_Button* toggle_on;
+Fl_Round_Button* toggle_off;
+
+// Start button callback
+void start_callback(Fl_Widget*, void*) {
+    // Get selected menu item
+    int selection = menu_choice->value();
+    const Fl_Menu_Item* menu = menu_choice->menu();
+    const char* selected = menu[selection].label();
+
+    // Get toggle state
+    const char* state = "OFF";
+    if (toggle_on->value()) state = "ON";
+
+    // Update output
+    std::string current = output_box->value() ? output_box->value() : "";
+    current += "Selected: " + std::string(selected) + "\n";
+    current += "Toggle state: " + std::string(state) + "\n";
+    current += "Start button pressed!\n\n";
+    output_box->value(current.c_str());
+}
+
+// Toggle buttons callback
+void toggle_callback(Fl_Widget*, void*) {
+    // Determine active state
+    const char* state = "OFF";
+    if (toggle_on->value()) state = "ON";
+
+    std::string current = output_box->value() ? output_box->value() : "";
+    current += "Toggle switched to " + std::string(state) + "\n\n";
+    output_box->value(current.c_str());
+}
+
+
+
 int main(int argc, char** argv) {
-    auto window = new Fl_Window(400, 150, "Reverse Text");
+    // Create main window
+    Fl_Window* window = new Fl_Window(400, 300, "Control Panel");
+    window->color(FL_WHITE);
 
-    // Input field
-    auto* input = new Fl_Input(100, 30, 200, 30, "Input:");
-    input->when(FL_WHEN_ENTER_KEY_ALWAYS); // Trigger callback on Enter key
+    // Create drop-down menu
+    menu_choice = new Fl_Choice(20, 20, 150, 30, "Options:");
+    menu_choice->add("Option 1");
+    menu_choice->add("Option 2");
+    menu_choice->add("Option 3");
+    menu_choice->value(0);  // Set default selection
 
-    // Output field
-    auto* output = new Fl_Output(100, 80, 200, 30, "Reversed:");
+    // Create start button
+    Fl_Button* start_btn = new Fl_Button(200, 20, 80, 30, "Start");
+    start_btn->callback(start_callback);
 
-    // Set the callback function
-    input->callback(reverse_input_cb, output);
+    // Create toggle buttons (radio group)
+    toggle_on = new Fl_Round_Button(300, 20, 80, 30, "ON");
+    toggle_off = new Fl_Round_Button(300, 60, 80, 30, "OFF");
+
+    // Configure as radio buttons
+    toggle_on->type(FL_RADIO_BUTTON);
+    toggle_off->type(FL_RADIO_BUTTON);
+    toggle_off->value(1);  // Default to OFF position
+
+    // Set common callback
+    toggle_on->callback(toggle_callback);
+    toggle_off->callback(toggle_callback);
+
+    // Create output text box
+    output_box = new Fl_Multiline_Output(20, 100, 360, 170);
+    output_box->textfont(FL_COURIER);
+    output_box->textsize(12);
+    output_box->value("System Ready\n\n");  // Initial message
 
     window->end();
-    window->show(argc, argv);
+    window->show();
     return Fl::run();
 
     string genre;
@@ -66,7 +115,7 @@ int main(int argc, char** argv) {
     // Pick a random song
     random_device rd;
     mt19937 gen(rd());
-    uniform_int_distribution<> dist(0, static_cast<int>(songs.size() - 1));
+    uniform_int_distribution<> dist(0, songs.size() - 1);
     int startIndex = dist(gen);
 
     cout << "\nStarting song: " << songs[startIndex].track_name << " by " << songs[startIndex].artists << "\n\n";
@@ -82,16 +131,18 @@ int main(int argc, char** argv) {
         }
     }
 
-    ranges::sort(distances);
+    sort(distances.begin(), distances.end());
 
     cout << "9 closest songs:\n";
     int count = 0;
-    for (int index : distances | std::views::values) {
+    for (const auto& [dist, index] : distances) {
         string key = songs[index].track_name + songs[index].artists;
-        if (seen.contains(key)) continue;
+        if (seen.count(key)) continue;
 
         seen.insert(key);
         cout << " - " << songs[index].track_name << " by " << songs[index].artists << "\n";
         if (++count == 9) break;
     }
+
+    return 0;
 }
