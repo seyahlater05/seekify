@@ -1,0 +1,20 @@
+# Ignore CMake build directories
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+Makefile
+cmake_install.cmake
+compile_commands.json
+
+# Ignore executables
+*.exe
+*.out
+*.app
+
+# Ignore CLion/JetBrains IDE settings
+.idea/
+*.iml
+
+# macOS / Windows OS files
+.DS_Store
+Thumbs.db
