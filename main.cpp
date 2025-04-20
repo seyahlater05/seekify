@@ -54,7 +54,7 @@ void toggle_callback(Fl_Widget*, void*) {
 
 int main(int argc, char** argv) {
     ifstream file("dataset.csv");
-    if (!file) {
+    if (!file.is_open()) {
         cerr << "Could not open dataset.csv\n";
         return 1;
     }
