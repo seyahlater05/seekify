@@ -40,6 +40,7 @@ int main(int argc, char** argv) {
 
     window->end();
     window->show(argc, argv);
+    return Fl::run();
 
     string genre;
     cout << "Enter a genre: ";
@@ -93,6 +94,4 @@ int main(int argc, char** argv) {
         cout << " - " << songs[index].track_name << " by " << songs[index].artists << "\n";
         if (++count == 9) break;
     }
-
-    return 0;
 }
