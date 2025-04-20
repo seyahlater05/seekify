@@ -15,31 +15,30 @@
 
 // Callback function to reverse the input text
 void reverse_input_cb(Fl_Widget* w, void* data) {
-    Fl_Input* input = static_cast<Fl_Input*>(w);
-    Fl_Output* output = static_cast<Fl_Output*>(data);
+    auto* input = dynamic_cast<Fl_Input*>(w);
+    auto* output = static_cast<Fl_Output*>(data);
 
     std::string text = input->value();
-    std::reverse(text.begin(), text.end());
+    ranges::reverse(text);
     output->value(text.c_str());
 }
 using namespace std;
 
 int main(int argc, char** argv) {
-    Fl_Window* window = new Fl_Window(400, 150, "Reverse Text");
+    auto window = new Fl_Window(400, 150, "Reverse Text");
 
     // Input field
-    Fl_Input* input = new Fl_Input(100, 30, 200, 30, "Input:");
+    auto* input = new Fl_Input(100, 30, 200, 30, "Input:");
     input->when(FL_WHEN_ENTER_KEY_ALWAYS); // Trigger callback on Enter key
 
     // Output field
-    Fl_Output* output = new Fl_Output(100, 80, 200, 30, "Reversed:");
+    auto* output = new Fl_Output(100, 80, 200, 30, "Reversed:");
 
     // Set the callback function
     input->callback(reverse_input_cb, output);
 
     window->end();
     window->show(argc, argv);
-    return Fl::run();
 
     string genre;
     cout << "Enter a genre: ";
@@ -87,7 +86,7 @@ int main(int argc, char** argv) {
     int count = 0;
     for (const auto& [dist, index] : distances) {
         string key = songs[index].track_name + songs[index].artists;
-        if (seen.count(key)) continue;
+        if (seen.contains(key)) continue;
 
         seen.insert(key);
         cout << " - " << songs[index].track_name << " by " << songs[index].artists << "\n";

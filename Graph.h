@@ -22,8 +22,9 @@ private:
     unordered_map<string, vector<Song>> genreMap;
     unordered_map<string, vector<vector<float>>> adjacencyMatrices;
 
-    vector<float> GetFeatureVector(const Song& song) const;
-    float EuclideanDistance(const vector<float>& a, const vector<float>& b) const;
+    static vector<float> GetFeatureVector(const Song& song);
+
+    static float EuclideanDistance(const vector<float>& a, const vector<float>& b);
 
 public:
     void LoadFromCSV(ifstream& file);
