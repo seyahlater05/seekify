@@ -112,14 +112,62 @@ CMAKE_FIND_PACKAGE_REDIRECTS_DIR:STATIC=C:/Users/Hayes/CLionProjects/seekify/cma
 //Convert GNU import libraries to MS format (requires Visual Studio)
 CMAKE_GNUtoMS:BOOL=OFF
 
+//User executables (bin)
+CMAKE_INSTALL_BINDIR:PATH=bin
+
+//Read-only architecture-independent data (DATAROOTDIR)
+CMAKE_INSTALL_DATADIR:PATH=
+
+//Read-only architecture-independent data root (share)
+CMAKE_INSTALL_DATAROOTDIR:PATH=share
+
+//Documentation root (DATAROOTDIR/doc/PROJECT_NAME)
+CMAKE_INSTALL_DOCDIR:PATH=
+
+//C header files (include)
+CMAKE_INSTALL_INCLUDEDIR:PATH=include
+
+//Info documentation (DATAROOTDIR/info)
+CMAKE_INSTALL_INFODIR:PATH=
+
+//Object code libraries (lib)
+CMAKE_INSTALL_LIBDIR:PATH=lib
+
+//Program executables (libexec)
+CMAKE_INSTALL_LIBEXECDIR:PATH=libexec
+
+//Locale-dependent data (DATAROOTDIR/locale)
+CMAKE_INSTALL_LOCALEDIR:PATH=
+
+//Modifiable single-machine data (var)
+CMAKE_INSTALL_LOCALSTATEDIR:PATH=var
+
+//Man documentation (DATAROOTDIR/man)
+CMAKE_INSTALL_MANDIR:PATH=
+
+//C header files for non-gcc (/usr/include)
+CMAKE_INSTALL_OLDINCLUDEDIR:PATH=/usr/include
+
 //Install path prefix, prepended onto install directories.
 CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/seekify
+
+//Run-time variable data (LOCALSTATEDIR/run)
+CMAKE_INSTALL_RUNSTATEDIR:PATH=
+
+//System admin executables (sbin)
+CMAKE_INSTALL_SBINDIR:PATH=sbin
+
+//Modifiable architecture-independent data (com)
+CMAKE_INSTALL_SHAREDSTATEDIR:PATH=com
+
+//Read-only single-machine data (etc)
+CMAKE_INSTALL_SYSCONFDIR:PATH=etc
 
 //Path to a program.
 CMAKE_LINKER:FILEPATH=C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/mingw/bin/ld.exe
 
 //make program
-CMAKE_MAKE_PROGRAM:FILEPATH=C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/ninja/win/x64/ninja.exe
+CMAKE_MAKE_PROGRAM:FILEPATH=C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/ninja/win/x64/ninja.exe
 
 //Flags used by the linker during the creation of modules during
 // all build types.
@@ -158,6 +206,21 @@ CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
 CMAKE_PROJECT_NAME:STATIC=seekify
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION:STATIC=1.4.2
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_MAJOR:STATIC=1
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_MINOR:STATIC=4
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_PATCH:STATIC=2
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_TWEAK:STATIC=
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/mingw/bin/ranlib.exe
@@ -233,6 +296,9 @@ CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 //Path to a program.
 CMAKE_STRIP:FILEPATH=C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/mingw/bin/strip.exe
 
+//suppress rules to re-run CMake on rebuild
+CMAKE_SUPPRESS_REGENERATION:BOOL=OFF
+
 //Path to a program.
 CMAKE_TAPI:FILEPATH=CMAKE_TAPI-NOTFOUND
 
@@ -241,6 +307,166 @@ CMAKE_TAPI:FILEPATH=CMAKE_TAPI-NOTFOUND
 // during the make.  This is useful for debugging only. With Visual
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
+
+//Dot tool for use with Doxygen
+DOXYGEN_DOT_EXECUTABLE:FILEPATH=DOXYGEN_DOT_EXECUTABLE-NOTFOUND
+
+//Doxygen documentation generation tool (https://www.doxygen.nl)
+DOXYGEN_EXECUTABLE:FILEPATH=DOXYGEN_EXECUTABLE-NOTFOUND
+
+//FLTK ABI Version FL_ABI_VERSION: 1xxyy for 1.x.y (xx,yy with
+// leading zero)
+FLTK_ABI_VERSION:STRING=
+
+//custom architecture flags
+FLTK_ARCHFLAGS:STRING=
+
+//Value Computed by CMake
+FLTK_BINARY_DIR:STATIC=C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/fltk-1.4.2-source/fltk/fltk-1.4.2
+
+//Binary install path relative to CMAKE_INSTALL_PREFIX unless set
+// to an absolute path.
+FLTK_BINDIR:PATH=bin
+
+//Build example programs
+FLTK_BUILD_EXAMPLES:BOOL=OFF
+
+//Build fltk-options
+FLTK_BUILD_FLTK_OPTIONS:BOOL=ON
+
+//Build FLUID
+FLTK_BUILD_FLUID:BOOL=ON
+
+//Build forms compatibility library
+FLTK_BUILD_FORMS:BOOL=ON
+
+//use OpenGL and build fltk_gl library
+FLTK_BUILD_GL:BOOL=ON
+
+//Build shared libraries in addition to static libraries
+FLTK_BUILD_SHARED_LIBS:BOOL=OFF
+
+//Build test/demo programs
+FLTK_BUILD_TEST:BOOL=OFF
+
+//Non-arch data install path relative to CMAKE_INSTALL_PREFIX unless
+// set to an absolute path.
+FLTK_DATADIR:PATH=share
+
+//Non-arch doc install path relative to CMAKE_INSTALL_PREFIX unless
+// set to an absolute path.
+FLTK_DOCDIR:PATH=share/doc
+
+//FLTK's 'fluid' executable
+FLTK_FLUID_EXECUTABLE:STRING=fltk::fluid-cmd
+
+//FLTK Git revision (do not change)
+FLTK_GIT_REVISION:STRING=0816328aff512591af7bd2592679e2e908dbea18
+
+//use GDI+ when possible for antialiased graphics
+FLTK_GRAPHICS_GDIPLUS:BOOL=ON
+
+//Public header install path relative to CMAKE_INSTALL_PREFIX unless
+// set to an absolute path.
+FLTK_INCLUDEDIR:PATH=include
+
+//Value Computed by CMake
+FLTK_IS_TOP_LEVEL:STATIC=OFF
+
+//Library install path relative to CMAKE_INSTALL_PREFIX unless
+// set to an absolute path.
+FLTK_LIBDIR:PATH=lib
+
+//Manual install path relative to CMAKE_INSTALL_PREFIX unless set
+// to an absolute path.
+FLTK_MANDIR:PATH=share/man
+
+//Path to a file.
+FLTK_OPENGL_GLU_INCLUDE_DIR:PATH=FLTK_OPENGL_GLU_INCLUDE_DIR-NOTFOUND
+
+//use FLTK code instrumentation for Cairo extended use
+FLTK_OPTION_CAIRO_EXT:BOOL=OFF
+
+//add support for Fl_Cairo_Window
+FLTK_OPTION_CAIRO_WINDOW:BOOL=OFF
+
+//allow file system support
+FLTK_OPTION_FILESYSTEM_SUPPORT:BOOL=ON
+
+//enable large file support
+FLTK_OPTION_LARGE_FILE:BOOL=ON
+
+//custom optimization flags
+FLTK_OPTION_OPTIM:STRING=
+
+//allow print support
+FLTK_OPTION_PRINT_SUPPORT:BOOL=ON
+
+//allow FLTK to use some std:: features
+FLTK_OPTION_STD:BOOL=OFF
+
+//read/write SVG image files
+FLTK_OPTION_SVG:BOOL=ON
+
+//Value Computed by CMake
+FLTK_SOURCE_DIR:STATIC=C:/Users/Hayes/CLionProjects/seekify/fltk-1.4.2-source/fltk/fltk-1.4.2
+
+//use poll if available
+FLTK_USE_POLL:BOOL=OFF
+
+//use system libjpeg
+FLTK_USE_SYSTEM_LIBJPEG:BOOL=OFF
+
+//use system libpng
+FLTK_USE_SYSTEM_LIBPNG:BOOL=OFF
+
+//use system zlib
+FLTK_USE_SYSTEM_ZLIB:BOOL=OFF
+
+//FLTK version
+FLTK_VERSION:STRING=1.4.2
+
+//Path to a file.
+FREETYPE_PATH:PATH=FREETYPE_PATH-NOTFOUND
+
+//Path to a library.
+LIB_GL:FILEPATH=LIB_GL-NOTFOUND
+
+//Path to a library.
+LIB_MesaGL:FILEPATH=LIB_MesaGL-NOTFOUND
+
+//Path to a library.
+LIB_dl:FILEPATH=LIB_dl-NOTFOUND
+
+//Path to a library.
+LIB_fontconfig:FILEPATH=LIB_fontconfig-NOTFOUND
+
+//Path to a library.
+LIB_freetype:FILEPATH=LIB_freetype-NOTFOUND
+
+//Path to a library.
+LIB_jpeg:FILEPATH=LIB_jpeg-NOTFOUND
+
+//Path to a library.
+LIB_m:FILEPATH=LIB_m-NOTFOUND
+
+//Path to a library.
+LIB_png:FILEPATH=LIB_png-NOTFOUND
+
+//Path to a library.
+LIB_zlib:FILEPATH=LIB_zlib-NOTFOUND
+
+//OpenGL library for win32
+OPENGL_gl_LIBRARY:STRING=opengl32
+
+//GLU library for win32
+OPENGL_glu_LIBRARY:STRING=glu32
+
+//Arguments to supply to pkg-config
+PKG_CONFIG_ARGN:STRING=
+
+//pkg-config executable
+PKG_CONFIG_EXECUTABLE:FILEPATH=PKG_CONFIG_EXECUTABLE-NOTFOUND
 
 //Value Computed by CMake
 seekify_BINARY_DIR:STATIC=C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug
@@ -339,6 +565,38 @@ CMAKE_GENERATOR_TOOLSET:INTERNAL=
 //Source directory with the top level CMakeLists.txt file for this
 // project
 CMAKE_HOME_DIRECTORY:INTERNAL=C:/Users/Hayes/CLionProjects/seekify
+//ADVANCED property for variable: CMAKE_INSTALL_BINDIR
+CMAKE_INSTALL_BINDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_DATADIR
+CMAKE_INSTALL_DATADIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_DATAROOTDIR
+CMAKE_INSTALL_DATAROOTDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_DOCDIR
+CMAKE_INSTALL_DOCDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_INCLUDEDIR
+CMAKE_INSTALL_INCLUDEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_INFODIR
+CMAKE_INSTALL_INFODIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_LIBDIR
+CMAKE_INSTALL_LIBDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_LIBEXECDIR
+CMAKE_INSTALL_LIBEXECDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_LOCALEDIR
+CMAKE_INSTALL_LOCALEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_LOCALSTATEDIR
+CMAKE_INSTALL_LOCALSTATEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_MANDIR
+CMAKE_INSTALL_MANDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_OLDINCLUDEDIR
+CMAKE_INSTALL_OLDINCLUDEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_RUNSTATEDIR
+CMAKE_INSTALL_RUNSTATEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_SBINDIR
+CMAKE_INSTALL_SBINDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_SHAREDSTATEDIR
+CMAKE_INSTALL_SHAREDSTATEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_SYSCONFDIR
+CMAKE_INSTALL_SYSCONFDIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_LINKER
 CMAKE_LINKER-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS
@@ -354,7 +612,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=1
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=8
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -406,10 +664,118 @@ CMAKE_STATIC_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_STRIP
 CMAKE_STRIP-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_SUPPRESS_REGENERATION
+CMAKE_SUPPRESS_REGENERATION-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_TAPI
 CMAKE_TAPI-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: DOXYGEN_DOT_EXECUTABLE
+DOXYGEN_DOT_EXECUTABLE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: DOXYGEN_EXECUTABLE
+DOXYGEN_EXECUTABLE-ADVANCED:INTERNAL=1
+//Details about finding OpenGL
+FIND_PACKAGE_MESSAGE_DETAILS_OpenGL:INTERNAL=[opengl32][c ][v()]
+//ADVANCED property for variable: FLTK_USE_POLL
+FLTK_USE_POLL-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: FREETYPE_PATH
+FREETYPE_PATH-ADVANCED:INTERNAL=1
+//Have includes alsa/asoundlib.h
+HAVE_ALSA_ASOUNDLIB_H:INTERNAL=
+//Have include dirent.h
+HAVE_DIRENT_H:INTERNAL=1
+//Have includes dlfcn.h
+HAVE_DLFCN_H:INTERNAL=
+//Have symbol dlsym
+HAVE_DLSYM:INTERNAL=
+//Have symbol glXGetProcAddressARB
+HAVE_GLXGETPROCADDRESSARB:INTERNAL=
+//ADVANCED property for variable: HAVE_GL_GLU_H
+HAVE_GL_GLU_H-ADVANCED:INTERNAL=1
+//Have include GL/glu.h
+HAVE_GL_GLU_H:INTERNAL=1
+//Result of TRY_COMPILE
+HAVE_HAVE_LONG_LONG:INTERNAL=TRUE
+//Have symbol localeconv
+HAVE_LOCALECONV:INTERNAL=1
+//Have include locale.h
+HAVE_LOCALE_H:INTERNAL=1
+//CHECK_TYPE_SIZE: sizeof(long long)
+HAVE_LONG_LONG:INTERNAL=8
+//Have includes OpenGL/glu.h
+HAVE_OPENGL_GLU_H:INTERNAL=
+//Have symbol scandir
+HAVE_SCANDIR:INTERNAL=
+//Have symbol setenv
+HAVE_SETENV:INTERNAL=
+//Result of TRY_COMPILE
+HAVE_SIZEOF_INT:INTERNAL=TRUE
+//Result of TRY_COMPILE
+HAVE_SIZEOF_LONG:INTERNAL=TRUE
+//Result of TRY_COMPILE
+HAVE_SIZEOF_SHORT:INTERNAL=TRUE
+//Have symbol snprintf
+HAVE_SNPRINTF:INTERNAL=1
+//Have include stddef.h
+HAVE_STDDEF_H:INTERNAL=1
+//Have include stdint.h
+HAVE_STDINT_H:INTERNAL=1
+//Have include stdio.h
+HAVE_STDIO_H:INTERNAL=1
+//Have symbol strcasecmp
+HAVE_STRCASECMP:INTERNAL=1
+//Have include strings.h
+HAVE_STRINGS_H:INTERNAL=1
+//Have symbol strlcat
+HAVE_STRLCAT:INTERNAL=
+//Have symbol strlcpy
+HAVE_STRLCPY:INTERNAL=
+//Have includes sys/select.h
+HAVE_SYS_SELECT_H:INTERNAL=
+//Have includes sys/stdtypes.h
+HAVE_SYS_STDTYPES_H:INTERNAL=
+//Have include sys/types.h
+HAVE_SYS_TYPES_H:INTERNAL=1
+//Have symbol trunc
+HAVE_TRUNC:INTERNAL=1
+//Have symbol vsnprintf
+HAVE_VSNPRINTF:INTERNAL=1
+//Have includes X11/Xlib.h;X11/Xregion.h
+HAVE_X11_XREGION_H:INTERNAL=
+//ADVANCED property for variable: LIB_GL
+LIB_GL-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: LIB_MesaGL
+LIB_MesaGL-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: LIB_dl
+LIB_dl-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: LIB_fontconfig
+LIB_fontconfig-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: LIB_freetype
+LIB_freetype-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: LIB_jpeg
+LIB_jpeg-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: LIB_m
+LIB_m-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: LIB_png
+LIB_png-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: LIB_zlib
+LIB_zlib-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENGL_gl_LIBRARY
+OPENGL_gl_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENGL_glu_LIBRARY
+OPENGL_glu_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PKG_CONFIG_ARGN
+PKG_CONFIG_ARGN-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
+PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
+//CHECK_TYPE_SIZE: sizeof(int)
+SIZEOF_INT:INTERNAL=4
+//CHECK_TYPE_SIZE: sizeof(long)
+SIZEOF_LONG:INTERNAL=4
+//CHECK_TYPE_SIZE: sizeof(short)
+SIZEOF_SHORT:INTERNAL=2
 //linker supports push/pop state
 _CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
+//CMAKE_INSTALL_PREFIX during last run
+_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files (x86)/seekify
 

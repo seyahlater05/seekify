@@ -464,3 +464,928 @@ events:
       Running the CXX compiler's linker: "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/mingw/bin/ld.exe" "-v"
       GNU ld (GNU Binutils) 2.40
 ...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckIncludeFile.cmake:90 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckTypeSize.cmake:250 (check_include_file)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/setup.cmake:186 (CHECK_TYPE_SIZE)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMakeLists.txt:68 (include)"
+    checks:
+      - "Looking for sys/types.h"
+    directories:
+      source: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-cfnjq5"
+      binary: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-cfnjq5"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/Hayes/CLionProjects/seekify/fltk-1.4.2-source/fltk/fltk-1.4.2/CMake"
+    buildResult:
+      variable: "HAVE_SYS_TYPES_H"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-cfnjq5'
+        
+        Run Build Command(s): C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/ninja/win/x64/ninja.exe -v cmTC_e8c70
+        [1/2] C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_e8c70.dir/CheckIncludeFile.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-cfnjq5/CheckIncludeFile.c
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe   CMakeFiles/cmTC_e8c70.dir/CheckIncludeFile.c.obj -o cmTC_e8c70.exe -Wl,--out-implib,libcmTC_e8c70.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckIncludeFile.cmake:90 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckTypeSize.cmake:251 (check_include_file)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/setup.cmake:186 (CHECK_TYPE_SIZE)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMakeLists.txt:68 (include)"
+    checks:
+      - "Looking for stdint.h"
+    directories:
+      source: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-5j2tpx"
+      binary: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-5j2tpx"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/Hayes/CLionProjects/seekify/fltk-1.4.2-source/fltk/fltk-1.4.2/CMake"
+    buildResult:
+      variable: "HAVE_STDINT_H"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-5j2tpx'
+        
+        Run Build Command(s): C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/ninja/win/x64/ninja.exe -v cmTC_8c429
+        [1/2] C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_8c429.dir/CheckIncludeFile.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-5j2tpx/CheckIncludeFile.c
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe   CMakeFiles/cmTC_8c429.dir/CheckIncludeFile.c.obj -o cmTC_8c429.exe -Wl,--out-implib,libcmTC_8c429.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckIncludeFile.cmake:90 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckTypeSize.cmake:252 (check_include_file)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/setup.cmake:186 (CHECK_TYPE_SIZE)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMakeLists.txt:68 (include)"
+    checks:
+      - "Looking for stddef.h"
+    directories:
+      source: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-qbg72s"
+      binary: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-qbg72s"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/Hayes/CLionProjects/seekify/fltk-1.4.2-source/fltk/fltk-1.4.2/CMake"
+    buildResult:
+      variable: "HAVE_STDDEF_H"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-qbg72s'
+        
+        Run Build Command(s): C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/ninja/win/x64/ninja.exe -v cmTC_4ce91
+        [1/2] C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_4ce91.dir/CheckIncludeFile.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-qbg72s/CheckIncludeFile.c
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe   CMakeFiles/cmTC_4ce91.dir/CheckIncludeFile.c.obj -o cmTC_4ce91.exe -Wl,--out-implib,libcmTC_4ce91.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckTypeSize.cmake:146 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckTypeSize.cmake:271 (__check_type_size_impl)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/setup.cmake:186 (CHECK_TYPE_SIZE)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMakeLists.txt:68 (include)"
+    checks:
+      - "Check size of short"
+    directories:
+      source: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-dik74u"
+      binary: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-dik74u"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/Hayes/CLionProjects/seekify/fltk-1.4.2-source/fltk/fltk-1.4.2/CMake"
+    buildResult:
+      variable: "HAVE_SIZEOF_SHORT"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-dik74u'
+        
+        Run Build Command(s): C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/ninja/win/x64/ninja.exe -v cmTC_d9e43
+        [1/2] C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_d9e43.dir/SIZEOF_SHORT.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-dik74u/SIZEOF_SHORT.c
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe   CMakeFiles/cmTC_d9e43.dir/SIZEOF_SHORT.c.obj -o cmTC_d9e43.exe -Wl,--out-implib,libcmTC_d9e43.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckTypeSize.cmake:146 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckTypeSize.cmake:271 (__check_type_size_impl)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/setup.cmake:187 (CHECK_TYPE_SIZE)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMakeLists.txt:68 (include)"
+    checks:
+      - "Check size of int"
+    directories:
+      source: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-lhl1k6"
+      binary: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-lhl1k6"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/Hayes/CLionProjects/seekify/fltk-1.4.2-source/fltk/fltk-1.4.2/CMake"
+    buildResult:
+      variable: "HAVE_SIZEOF_INT"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-lhl1k6'
+        
+        Run Build Command(s): C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/ninja/win/x64/ninja.exe -v cmTC_e033a
+        [1/2] C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_e033a.dir/SIZEOF_INT.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-lhl1k6/SIZEOF_INT.c
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe   CMakeFiles/cmTC_e033a.dir/SIZEOF_INT.c.obj -o cmTC_e033a.exe -Wl,--out-implib,libcmTC_e033a.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckTypeSize.cmake:146 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckTypeSize.cmake:271 (__check_type_size_impl)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/setup.cmake:188 (CHECK_TYPE_SIZE)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMakeLists.txt:68 (include)"
+    checks:
+      - "Check size of long"
+    directories:
+      source: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-plfqyq"
+      binary: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-plfqyq"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/Hayes/CLionProjects/seekify/fltk-1.4.2-source/fltk/fltk-1.4.2/CMake"
+    buildResult:
+      variable: "HAVE_SIZEOF_LONG"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-plfqyq'
+        
+        Run Build Command(s): C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/ninja/win/x64/ninja.exe -v cmTC_4742a
+        [1/2] C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_4742a.dir/SIZEOF_LONG.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-plfqyq/SIZEOF_LONG.c
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe   CMakeFiles/cmTC_4742a.dir/SIZEOF_LONG.c.obj -o cmTC_4742a.exe -Wl,--out-implib,libcmTC_4742a.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckTypeSize.cmake:146 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckTypeSize.cmake:271 (__check_type_size_impl)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/setup.cmake:189 (CHECK_TYPE_SIZE)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMakeLists.txt:68 (include)"
+    checks:
+      - "Check size of long long"
+    directories:
+      source: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ibpffx"
+      binary: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ibpffx"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/Hayes/CLionProjects/seekify/fltk-1.4.2-source/fltk/fltk-1.4.2/CMake"
+    buildResult:
+      variable: "HAVE_HAVE_LONG_LONG"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ibpffx'
+        
+        Run Build Command(s): C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/ninja/win/x64/ninja.exe -v cmTC_5e657
+        [1/2] C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_5e657.dir/HAVE_LONG_LONG.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ibpffx/HAVE_LONG_LONG.c
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe   CMakeFiles/cmTC_5e657.dir/HAVE_LONG_LONG.c.obj -o cmTC_5e657.exe -Wl,--out-implib,libcmTC_5e657.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckIncludeFiles.cmake:132 (try_compile)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/resources.cmake:34 (check_include_files)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/resources.cmake:127 (fl_find_header)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMakeLists.txt:73 (include)"
+    directories:
+      source: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-8mmz5r"
+      binary: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-8mmz5r"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/Hayes/CLionProjects/seekify/fltk-1.4.2-source/fltk/fltk-1.4.2/CMake"
+    buildResult:
+      variable: "HAVE_ALSA_ASOUNDLIB_H"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-8mmz5r'
+        
+        Run Build Command(s): C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/ninja/win/x64/ninja.exe -v cmTC_d268e
+        [1/2] C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_d268e.dir/HAVE_ALSA_ASOUNDLIB_H.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-8mmz5r/HAVE_ALSA_ASOUNDLIB_H.c
+        \x1b[31mFAILED: \x1b[0mCMakeFiles/cmTC_d268e.dir/HAVE_ALSA_ASOUNDLIB_H.c.obj 
+        C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_d268e.dir/HAVE_ALSA_ASOUNDLIB_H.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-8mmz5r/HAVE_ALSA_ASOUNDLIB_H.c
+        C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-8mmz5r/HAVE_ALSA_ASOUNDLIB_H.c:2:10: fatal error: alsa/asoundlib.h: No such file or directory
+            2 | #include <alsa/asoundlib.h>
+              |          ^~~~~~~~~~~~~~~~~~
+        compilation terminated.\x0d
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckIncludeFiles.cmake:132 (try_compile)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/resources.cmake:34 (check_include_files)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/resources.cmake:128 (fl_find_header)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMakeLists.txt:73 (include)"
+    directories:
+      source: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-bckpmz"
+      binary: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-bckpmz"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/Hayes/CLionProjects/seekify/fltk-1.4.2-source/fltk/fltk-1.4.2/CMake"
+    buildResult:
+      variable: "HAVE_DLFCN_H"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-bckpmz'
+        
+        Run Build Command(s): C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/ninja/win/x64/ninja.exe -v cmTC_36ebe
+        [1/2] C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_36ebe.dir/HAVE_DLFCN_H.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-bckpmz/HAVE_DLFCN_H.c
+        \x1b[31mFAILED: \x1b[0mCMakeFiles/cmTC_36ebe.dir/HAVE_DLFCN_H.c.obj 
+        C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_36ebe.dir/HAVE_DLFCN_H.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-bckpmz/HAVE_DLFCN_H.c
+        In file included from C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-bckpmz/HAVE_DLFCN_H.c:2:
+        /mingw/include/dlfcn.h:60:10: error: expected ';' before 'struct'
+           60 | _EXTERN_C struct __dlfcn__
+              |          ^~~~~~~
+              |          ;
+        /mingw/include/dlfcn.h:69:15: error: expected ';' before 'void'
+           69 | _BEGIN_C_DECLS
+              |               ^
+              |               ;
+        ......
+           73 | void * dlopen( const char *, int );
+              | ~~~~           
+        /mingw/include/dlfcn.h:78:1: error: unknown type name '__CRT_ALIAS'
+           78 | __CRT_ALIAS __LIBIMPL__(( FUNCTION = dlopen ))
+              | ^~~~~~~~~~~
+        /mingw/include/dlfcn.h:78:25: error: expected declaration specifiers or '...' before '(' token
+           78 | __CRT_ALIAS __LIBIMPL__(( FUNCTION = dlopen ))
+              |                         ^
+        /mingw/include/dlfcn.h:82:1: error: unknown type name '__CRT_ALIAS'
+           82 | __CRT_ALIAS __LIBIMPL__(( FUNCTION = dlsym ))
+              | ^~~~~~~~~~~
+        /mingw/include/dlfcn.h:82:25: error: expected declaration specifiers or '...' before '(' token
+           82 | __CRT_ALIAS __LIBIMPL__(( FUNCTION = dlsym ))
+              |                         ^
+        /mingw/include/dlfcn.h:86:1: error: unknown type name '__CRT_ALIAS'
+           86 | __CRT_ALIAS __LIBIMPL__(( FUNCTION = dlclose ))
+              | ^~~~~~~~~~~
+        /mingw/include/dlfcn.h:86:25: error: expected declaration specifiers or '...' before '(' token
+           86 | __CRT_ALIAS __LIBIMPL__(( FUNCTION = dlclose ))
+              |                         ^
+        /mingw/include/dlfcn.h:89:1: error: unknown type name '__CRT_ALIAS'
+           89 | __CRT_ALIAS __LIBIMPL__(( FUNCTION = dlerror ))
+              | ^~~~~~~~~~~
+        /mingw/include/dlfcn.h:89:25: error: expected declaration specifiers or '...' before '(' token
+           89 | __CRT_ALIAS __LIBIMPL__(( FUNCTION = dlerror ))
+              |                         ^
+        /mingw/include/dlfcn.h:92:13: error: expected ';' before 'int'
+           92 | _END_C_DECLS
+              |             ^
+              |             ;
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckIncludeFiles.cmake:132 (try_compile)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/resources.cmake:34 (check_include_files)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/resources.cmake:129 (fl_find_header)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMakeLists.txt:73 (include)"
+    directories:
+      source: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-n6ojy3"
+      binary: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-n6ojy3"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/Hayes/CLionProjects/seekify/fltk-1.4.2-source/fltk/fltk-1.4.2/CMake"
+    buildResult:
+      variable: "HAVE_GL_GLU_H"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-n6ojy3'
+        
+        Run Build Command(s): C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/ninja/win/x64/ninja.exe -v cmTC_b9857
+        [1/2] C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_b9857.dir/HAVE_GL_GLU_H.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-n6ojy3/HAVE_GL_GLU_H.c
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe   CMakeFiles/cmTC_b9857.dir/HAVE_GL_GLU_H.c.obj -o cmTC_b9857.exe -Wl,--out-implib,libcmTC_b9857.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckIncludeFiles.cmake:132 (try_compile)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/resources.cmake:34 (check_include_files)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/resources.cmake:130 (fl_find_header)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMakeLists.txt:73 (include)"
+    directories:
+      source: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-1j1qqx"
+      binary: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-1j1qqx"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/Hayes/CLionProjects/seekify/fltk-1.4.2-source/fltk/fltk-1.4.2/CMake"
+    buildResult:
+      variable: "HAVE_LOCALE_H"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-1j1qqx'
+        
+        Run Build Command(s): C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/ninja/win/x64/ninja.exe -v cmTC_ee7ee
+        [1/2] C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_ee7ee.dir/HAVE_LOCALE_H.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-1j1qqx/HAVE_LOCALE_H.c
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe   CMakeFiles/cmTC_ee7ee.dir/HAVE_LOCALE_H.c.obj -o cmTC_ee7ee.exe -Wl,--out-implib,libcmTC_ee7ee.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckIncludeFiles.cmake:132 (try_compile)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/resources.cmake:34 (check_include_files)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/resources.cmake:131 (fl_find_header)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMakeLists.txt:73 (include)"
+    directories:
+      source: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ctok9p"
+      binary: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ctok9p"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/Hayes/CLionProjects/seekify/fltk-1.4.2-source/fltk/fltk-1.4.2/CMake"
+    buildResult:
+      variable: "HAVE_OPENGL_GLU_H"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ctok9p'
+        
+        Run Build Command(s): C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/ninja/win/x64/ninja.exe -v cmTC_f178c
+        [1/2] C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_f178c.dir/HAVE_OPENGL_GLU_H.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ctok9p/HAVE_OPENGL_GLU_H.c
+        \x1b[31mFAILED: \x1b[0mCMakeFiles/cmTC_f178c.dir/HAVE_OPENGL_GLU_H.c.obj 
+        C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_f178c.dir/HAVE_OPENGL_GLU_H.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ctok9p/HAVE_OPENGL_GLU_H.c
+        C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ctok9p/HAVE_OPENGL_GLU_H.c:2:10: fatal error: OpenGL/glu.h: No such file or directory
+            2 | #include <OpenGL/glu.h>
+              |          ^~~~~~~~~~~~~~
+        compilation terminated.\x0d
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckIncludeFiles.cmake:132 (try_compile)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/resources.cmake:34 (check_include_files)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/resources.cmake:132 (fl_find_header)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMakeLists.txt:73 (include)"
+    directories:
+      source: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-3xm23y"
+      binary: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-3xm23y"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/Hayes/CLionProjects/seekify/fltk-1.4.2-source/fltk/fltk-1.4.2/CMake"
+    buildResult:
+      variable: "HAVE_STDIO_H"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-3xm23y'
+        
+        Run Build Command(s): C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/ninja/win/x64/ninja.exe -v cmTC_f40f3
+        [1/2] C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_f40f3.dir/HAVE_STDIO_H.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-3xm23y/HAVE_STDIO_H.c
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe   CMakeFiles/cmTC_f40f3.dir/HAVE_STDIO_H.c.obj -o cmTC_f40f3.exe -Wl,--out-implib,libcmTC_f40f3.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckIncludeFiles.cmake:132 (try_compile)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/resources.cmake:34 (check_include_files)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/resources.cmake:133 (fl_find_header)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMakeLists.txt:73 (include)"
+    directories:
+      source: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ijiwek"
+      binary: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ijiwek"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/Hayes/CLionProjects/seekify/fltk-1.4.2-source/fltk/fltk-1.4.2/CMake"
+    buildResult:
+      variable: "HAVE_STRINGS_H"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ijiwek'
+        
+        Run Build Command(s): C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/ninja/win/x64/ninja.exe -v cmTC_b8135
+        [1/2] C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_b8135.dir/HAVE_STRINGS_H.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ijiwek/HAVE_STRINGS_H.c
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe   CMakeFiles/cmTC_b8135.dir/HAVE_STRINGS_H.c.obj -o cmTC_b8135.exe -Wl,--out-implib,libcmTC_b8135.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckIncludeFiles.cmake:132 (try_compile)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/resources.cmake:34 (check_include_files)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/resources.cmake:134 (fl_find_header)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMakeLists.txt:73 (include)"
+    directories:
+      source: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-as2o0a"
+      binary: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-as2o0a"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/Hayes/CLionProjects/seekify/fltk-1.4.2-source/fltk/fltk-1.4.2/CMake"
+    buildResult:
+      variable: "HAVE_SYS_SELECT_H"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-as2o0a'
+        
+        Run Build Command(s): C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/ninja/win/x64/ninja.exe -v cmTC_7830e
+        [1/2] C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_7830e.dir/HAVE_SYS_SELECT_H.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-as2o0a/HAVE_SYS_SELECT_H.c
+        \x1b[31mFAILED: \x1b[0mCMakeFiles/cmTC_7830e.dir/HAVE_SYS_SELECT_H.c.obj 
+        C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_7830e.dir/HAVE_SYS_SELECT_H.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-as2o0a/HAVE_SYS_SELECT_H.c
+        C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-as2o0a/HAVE_SYS_SELECT_H.c:2:10: fatal error: sys/select.h: No such file or directory
+            2 | #include <sys/select.h>
+              |          ^~~~~~~~~~~~~~
+        compilation terminated.\x0d
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckIncludeFiles.cmake:132 (try_compile)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/resources.cmake:34 (check_include_files)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/resources.cmake:135 (fl_find_header)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMakeLists.txt:73 (include)"
+    directories:
+      source: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-tggex7"
+      binary: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-tggex7"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/Hayes/CLionProjects/seekify/fltk-1.4.2-source/fltk/fltk-1.4.2/CMake"
+    buildResult:
+      variable: "HAVE_SYS_STDTYPES_H"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-tggex7'
+        
+        Run Build Command(s): C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/ninja/win/x64/ninja.exe -v cmTC_57783
+        [1/2] C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_57783.dir/HAVE_SYS_STDTYPES_H.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-tggex7/HAVE_SYS_STDTYPES_H.c
+        \x1b[31mFAILED: \x1b[0mCMakeFiles/cmTC_57783.dir/HAVE_SYS_STDTYPES_H.c.obj 
+        C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_57783.dir/HAVE_SYS_STDTYPES_H.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-tggex7/HAVE_SYS_STDTYPES_H.c
+        C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-tggex7/HAVE_SYS_STDTYPES_H.c:2:10: fatal error: sys/stdtypes.h: No such file or directory
+            2 | #include <sys/stdtypes.h>
+              |          ^~~~~~~~~~~~~~~~
+        compilation terminated.\x0d
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckIncludeFiles.cmake:132 (try_compile)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/resources.cmake:34 (check_include_files)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/resources.cmake:137 (fl_find_header)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMakeLists.txt:73 (include)"
+    directories:
+      source: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-j8nxzr"
+      binary: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-j8nxzr"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/Hayes/CLionProjects/seekify/fltk-1.4.2-source/fltk/fltk-1.4.2/CMake"
+    buildResult:
+      variable: "HAVE_X11_XREGION_H"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-j8nxzr'
+        
+        Run Build Command(s): C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/ninja/win/x64/ninja.exe -v cmTC_a0dea
+        [1/2] C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_a0dea.dir/HAVE_X11_XREGION_H.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-j8nxzr/HAVE_X11_XREGION_H.c
+        \x1b[31mFAILED: \x1b[0mCMakeFiles/cmTC_a0dea.dir/HAVE_X11_XREGION_H.c.obj 
+        C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_a0dea.dir/HAVE_X11_XREGION_H.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-j8nxzr/HAVE_X11_XREGION_H.c
+        C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-j8nxzr/HAVE_X11_XREGION_H.c:2:10: fatal error: X11/Xlib.h: No such file or directory
+            2 | #include <X11/Xlib.h>
+              |          ^~~~~~~~~~~~
+        compilation terminated.\x0d
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckIncludeFiles.cmake:132 (try_compile)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/resources.cmake:34 (check_include_files)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/resources.cmake:190 (fl_find_header)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMakeLists.txt:73 (include)"
+    directories:
+      source: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-7hfomp"
+      binary: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-7hfomp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/Hayes/CLionProjects/seekify/fltk-1.4.2-source/fltk/fltk-1.4.2/CMake"
+    buildResult:
+      variable: "HAVE_DIRENT_H"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-7hfomp'
+        
+        Run Build Command(s): C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/ninja/win/x64/ninja.exe -v cmTC_18c60
+        [1/2] C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_18c60.dir/HAVE_DIRENT_H.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-7hfomp/HAVE_DIRENT_H.c
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe   CMakeFiles/cmTC_18c60.dir/HAVE_DIRENT_H.c.obj -o cmTC_18c60.exe -Wl,--out-implib,libcmTC_18c60.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckSymbolExists.cmake:140 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckSymbolExists.cmake:66 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/resources.cmake:257 (check_symbol_exists)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMakeLists.txt:73 (include)"
+    directories:
+      source: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-mi12yb"
+      binary: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-mi12yb"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/Hayes/CLionProjects/seekify/fltk-1.4.2-source/fltk/fltk-1.4.2/CMake"
+    buildResult:
+      variable: "HAVE_DLSYM"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-mi12yb'
+        
+        Run Build Command(s): C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/ninja/win/x64/ninja.exe -v cmTC_7a527
+        [1/2] C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_7a527.dir/CheckSymbolExists.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-mi12yb/CheckSymbolExists.c
+        \x1b[31mFAILED: \x1b[0mCMakeFiles/cmTC_7a527.dir/CheckSymbolExists.c.obj 
+        C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_7a527.dir/CheckSymbolExists.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-mi12yb/CheckSymbolExists.c
+        In file included from C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-mi12yb/CheckSymbolExists.c:2:
+        /mingw/include/dlfcn.h:60:10: error: expected ';' before 'struct'
+           60 | _EXTERN_C struct __dlfcn__
+              |          ^~~~~~~
+              |          ;
+        /mingw/include/dlfcn.h:69:15: error: expected ';' before 'void'
+           69 | _BEGIN_C_DECLS
+              |               ^
+              |               ;
+        ......
+           73 | void * dlopen( const char *, int );
+              | ~~~~           
+        /mingw/include/dlfcn.h:78:1: error: unknown type name '__CRT_ALIAS'
+           78 | __CRT_ALIAS __LIBIMPL__(( FUNCTION = dlopen ))
+              | ^~~~~~~~~~~
+        /mingw/include/dlfcn.h:78:25: error: expected declaration specifiers or '...' before '(' token
+           78 | __CRT_ALIAS __LIBIMPL__(( FUNCTION = dlopen ))
+              |                         ^
+        /mingw/include/dlfcn.h:82:1: error: unknown type name '__CRT_ALIAS'
+           82 | __CRT_ALIAS __LIBIMPL__(( FUNCTION = dlsym ))
+              | ^~~~~~~~~~~
+        /mingw/include/dlfcn.h:82:25: error: expected declaration specifiers or '...' before '(' token
+           82 | __CRT_ALIAS __LIBIMPL__(( FUNCTION = dlsym ))
+              |                         ^
+        /mingw/include/dlfcn.h:86:1: error: unknown type name '__CRT_ALIAS'
+           86 | __CRT_ALIAS __LIBIMPL__(( FUNCTION = dlclose ))
+              | ^~~~~~~~~~~
+        /mingw/include/dlfcn.h:86:25: error: expected declaration specifiers or '...' before '(' token
+           86 | __CRT_ALIAS __LIBIMPL__(( FUNCTION = dlclose ))
+              |                         ^
+        /mingw/include/dlfcn.h:89:1: error: unknown type name '__CRT_ALIAS'
+           89 | __CRT_ALIAS __LIBIMPL__(( FUNCTION = dlerror ))
+              | ^~~~~~~~~~~
+        /mingw/include/dlfcn.h:89:25: error: expected declaration specifiers or '...' before '(' token
+           89 | __CRT_ALIAS __LIBIMPL__(( FUNCTION = dlerror ))
+              |                         ^
+        /mingw/include/dlfcn.h:92:13: error: expected ';' before 'int'
+           92 | _END_C_DECLS
+              |             ^
+              |             ;
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckSymbolExists.cmake:140 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckSymbolExists.cmake:66 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/resources.cmake:260 (check_symbol_exists)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMakeLists.txt:73 (include)"
+    directories:
+      source: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-0l2vjv"
+      binary: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-0l2vjv"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/Hayes/CLionProjects/seekify/fltk-1.4.2-source/fltk/fltk-1.4.2/CMake"
+    buildResult:
+      variable: "HAVE_LOCALECONV"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-0l2vjv'
+        
+        Run Build Command(s): C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/ninja/win/x64/ninja.exe -v cmTC_97640
+        [1/2] C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_97640.dir/CheckSymbolExists.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-0l2vjv/CheckSymbolExists.c
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe   CMakeFiles/cmTC_97640.dir/CheckSymbolExists.c.obj -o cmTC_97640.exe -Wl,--out-implib,libcmTC_97640.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckSymbolExists.cmake:140 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckSymbolExists.cmake:66 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/resources.cmake:269 (check_symbol_exists)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMakeLists.txt:73 (include)"
+    directories:
+      source: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-n118ry"
+      binary: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-n118ry"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/Hayes/CLionProjects/seekify/fltk-1.4.2-source/fltk/fltk-1.4.2/CMake"
+    buildResult:
+      variable: "HAVE_SCANDIR"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-n118ry'
+        
+        Run Build Command(s): C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/ninja/win/x64/ninja.exe -v cmTC_9f2cd
+        [1/2] C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_9f2cd.dir/CheckSymbolExists.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-n118ry/CheckSymbolExists.c
+        \x1b[31mFAILED: \x1b[0mCMakeFiles/cmTC_9f2cd.dir/CheckSymbolExists.c.obj 
+        C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_9f2cd.dir/CheckSymbolExists.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-n118ry/CheckSymbolExists.c
+        C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-n118ry/CheckSymbolExists.c: In function 'main':
+        C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-n118ry/CheckSymbolExists.c:8:19: error: 'scandir' undeclared (first use in this function)
+            8 |   return ((int*)(&scandir))[argc];
+              |                   ^~~~~~~
+        C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-n118ry/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckSymbolExists.cmake:140 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckSymbolExists.cmake:66 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/resources.cmake:270 (check_symbol_exists)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMakeLists.txt:73 (include)"
+    directories:
+      source: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-z8gqf4"
+      binary: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-z8gqf4"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/Hayes/CLionProjects/seekify/fltk-1.4.2-source/fltk/fltk-1.4.2/CMake"
+    buildResult:
+      variable: "HAVE_SNPRINTF"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-z8gqf4'
+        
+        Run Build Command(s): C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/ninja/win/x64/ninja.exe -v cmTC_56896
+        [1/2] C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_56896.dir/CheckSymbolExists.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-z8gqf4/CheckSymbolExists.c
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe   CMakeFiles/cmTC_56896.dir/CheckSymbolExists.c.obj -o cmTC_56896.exe -Wl,--out-implib,libcmTC_56896.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckSymbolExists.cmake:140 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckSymbolExists.cmake:66 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/resources.cmake:277 (check_symbol_exists)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMakeLists.txt:73 (include)"
+    directories:
+      source: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-iavt9o"
+      binary: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-iavt9o"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/Hayes/CLionProjects/seekify/fltk-1.4.2-source/fltk/fltk-1.4.2/CMake"
+    buildResult:
+      variable: "HAVE_STRCASECMP"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-iavt9o'
+        
+        Run Build Command(s): C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/ninja/win/x64/ninja.exe -v cmTC_51311
+        [1/2] C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_51311.dir/CheckSymbolExists.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-iavt9o/CheckSymbolExists.c
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe   CMakeFiles/cmTC_51311.dir/CheckSymbolExists.c.obj -o cmTC_51311.exe -Wl,--out-implib,libcmTC_51311.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckSymbolExists.cmake:140 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckSymbolExists.cmake:66 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/resources.cmake:279 (check_symbol_exists)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMakeLists.txt:73 (include)"
+    directories:
+      source: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-1spud2"
+      binary: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-1spud2"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/Hayes/CLionProjects/seekify/fltk-1.4.2-source/fltk/fltk-1.4.2/CMake"
+    buildResult:
+      variable: "HAVE_STRLCAT"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-1spud2'
+        
+        Run Build Command(s): C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/ninja/win/x64/ninja.exe -v cmTC_8aef3
+        [1/2] C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_8aef3.dir/CheckSymbolExists.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-1spud2/CheckSymbolExists.c
+        \x1b[31mFAILED: \x1b[0mCMakeFiles/cmTC_8aef3.dir/CheckSymbolExists.c.obj 
+        C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_8aef3.dir/CheckSymbolExists.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-1spud2/CheckSymbolExists.c
+        C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-1spud2/CheckSymbolExists.c: In function 'main':
+        C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-1spud2/CheckSymbolExists.c:8:19: error: 'strlcat' undeclared (first use in this function); did you mean 'strncat'?
+            8 |   return ((int*)(&strlcat))[argc];
+              |                   ^~~~~~~
+              |                   strncat
+        C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-1spud2/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckSymbolExists.cmake:140 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckSymbolExists.cmake:66 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/resources.cmake:280 (check_symbol_exists)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMakeLists.txt:73 (include)"
+    directories:
+      source: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-gvddd9"
+      binary: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-gvddd9"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/Hayes/CLionProjects/seekify/fltk-1.4.2-source/fltk/fltk-1.4.2/CMake"
+    buildResult:
+      variable: "HAVE_STRLCPY"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-gvddd9'
+        
+        Run Build Command(s): C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/ninja/win/x64/ninja.exe -v cmTC_dcb40
+        [1/2] C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_dcb40.dir/CheckSymbolExists.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-gvddd9/CheckSymbolExists.c
+        \x1b[31mFAILED: \x1b[0mCMakeFiles/cmTC_dcb40.dir/CheckSymbolExists.c.obj 
+        C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_dcb40.dir/CheckSymbolExists.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-gvddd9/CheckSymbolExists.c
+        C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-gvddd9/CheckSymbolExists.c: In function 'main':
+        C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-gvddd9/CheckSymbolExists.c:8:19: error: 'strlcpy' undeclared (first use in this function); did you mean 'strncpy'?
+            8 |   return ((int*)(&strlcpy))[argc];
+              |                   ^~~~~~~
+              |                   strncpy
+        C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-gvddd9/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckSymbolExists.cmake:140 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckSymbolExists.cmake:66 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/resources.cmake:281 (check_symbol_exists)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMakeLists.txt:73 (include)"
+    directories:
+      source: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-qka6mq"
+      binary: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-qka6mq"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/Hayes/CLionProjects/seekify/fltk-1.4.2-source/fltk/fltk-1.4.2/CMake"
+    buildResult:
+      variable: "HAVE_VSNPRINTF"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-qka6mq'
+        
+        Run Build Command(s): C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/ninja/win/x64/ninja.exe -v cmTC_7581f
+        [1/2] C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_7581f.dir/CheckSymbolExists.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-qka6mq/CheckSymbolExists.c
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe   CMakeFiles/cmTC_7581f.dir/CheckSymbolExists.c.obj -o cmTC_7581f.exe -Wl,--out-implib,libcmTC_7581f.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckSymbolExists.cmake:140 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckSymbolExists.cmake:66 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/resources.cmake:283 (check_symbol_exists)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMakeLists.txt:73 (include)"
+    directories:
+      source: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ilukeg"
+      binary: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ilukeg"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/Hayes/CLionProjects/seekify/fltk-1.4.2-source/fltk/fltk-1.4.2/CMake"
+    buildResult:
+      variable: "HAVE_SETENV"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ilukeg'
+        
+        Run Build Command(s): C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/ninja/win/x64/ninja.exe -v cmTC_c8b82
+        [1/2] C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_c8b82.dir/CheckSymbolExists.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ilukeg/CheckSymbolExists.c
+        \x1b[31mFAILED: \x1b[0mCMakeFiles/cmTC_c8b82.dir/CheckSymbolExists.c.obj 
+        C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_c8b82.dir/CheckSymbolExists.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ilukeg/CheckSymbolExists.c
+        C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ilukeg/CheckSymbolExists.c: In function 'main':
+        C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ilukeg/CheckSymbolExists.c:8:19: error: 'setenv' undeclared (first use in this function); did you mean 'getenv'?
+            8 |   return ((int*)(&setenv))[argc];
+              |                   ^~~~~~
+              |                   getenv
+        C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ilukeg/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckSymbolExists.cmake:140 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckSymbolExists.cmake:66 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/resources.cmake:290 (check_symbol_exists)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMakeLists.txt:73 (include)"
+    directories:
+      source: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-b0261c"
+      binary: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-b0261c"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/Hayes/CLionProjects/seekify/fltk-1.4.2-source/fltk/fltk-1.4.2/CMake"
+    buildResult:
+      variable: "HAVE_TRUNC"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-b0261c'
+        
+        Run Build Command(s): C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/ninja/win/x64/ninja.exe -v cmTC_3894c
+        [1/2] C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_3894c.dir/CheckSymbolExists.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-b0261c/CheckSymbolExists.c
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe   CMakeFiles/cmTC_3894c.dir/CheckSymbolExists.c.obj -o cmTC_3894c.exe -Wl,--out-implib,libcmTC_3894c.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckSymbolExists.cmake:140 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckSymbolExists.cmake:66 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMake/options.cmake:709 (check_symbol_exists)"
+      - "fltk-1.4.2-source/fltk/fltk-1.4.2/CMakeLists.txt:78 (include)"
+    checks:
+      - "Looking for glXGetProcAddressARB"
+    directories:
+      source: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-mtfg6u"
+      binary: "C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-mtfg6u"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/Hayes/CLionProjects/seekify/fltk-1.4.2-source/fltk/fltk-1.4.2/CMake"
+    buildResult:
+      variable: "HAVE_GLXGETPROCADDRESSARB"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-mtfg6u'
+        
+        Run Build Command(s): C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/ninja/win/x64/ninja.exe -v cmTC_c14ca
+        [1/2] C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_c14ca.dir/CheckSymbolExists.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-mtfg6u/CheckSymbolExists.c
+        \x1b[31mFAILED: \x1b[0mCMakeFiles/cmTC_c14ca.dir/CheckSymbolExists.c.obj 
+        C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_c14ca.dir/CheckSymbolExists.c.obj -c C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-mtfg6u/CheckSymbolExists.c
+        C:/Users/Hayes/CLionProjects/seekify/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-mtfg6u/CheckSymbolExists.c:2:10: fatal error: glx.h: No such file or directory
+            2 | #include <glx.h>
+              |          ^~~~~~~
+        compilation terminated.\x0d
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+...
