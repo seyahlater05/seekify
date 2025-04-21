@@ -16,27 +16,38 @@
 
 #include "FL/Fl_Box.H"
 using namespace std;
+//TODO:
+//replace multiline output w text display
+//add timer for differnt algos
+//implement actual functionality
+//add selector for attributes
 
 // Widget pointers
 Fl_Select_Browser* menu_choice;
 Fl_Multiline_Output* output_box;
+Fl_Multiline_Output* text_box;
 Fl_Round_Button* toggle_on;
 Fl_Round_Button* toggle_off;
 Fl_Anim_GIF_Image* title_gif = nullptr;
+Fl_Anim_GIF_Image* head_gif = nullptr;
 Fl_Box* title_box = nullptr;
+Fl_Box* head_box = nullptr;
 bool gif_playing = true;
-
+bool a = true;
 // Custom timer callback for GIF animation
 void gif_timer(void*) {
     if (gif_playing && title_gif && !title_gif->fail()) {
         // Advance animation frame WITHOUT automatic redraw
         title_gif->next();
-
+        if(a) {
+            head_gif->next();
+        }
+        a = !a;
         // Force redraw ONLY the GIF box area
         title_box->redraw();
-
+        head_box->redraw();
         // Maintain animation speed (30 FPS)
-        Fl::repeat_timeout(0.02, gif_timer);
+        Fl::repeat_timeout(0.04, gif_timer);
     }
 }
 // Start button callback
@@ -54,6 +65,7 @@ void start_callback(Fl_Widget*, void*) {
     current += "Algorithm: " + std::string(state) + "\n";
     current += "Start button pressed!\n\n";
     output_box->value(current.c_str());
+    output_box->value(output_box->value());
 }
 
 // Toggle buttons callback
@@ -88,6 +100,7 @@ int main(int argc, char** argv) {
     Fl::visual(FL_DOUBLE|FL_RGB);
 
     title_gif = new Fl_Anim_GIF_Image("superseekify.gif");
+    head_gif = new Fl_Anim_GIF_Image("head.gif");
     if (title_gif && !title_gif->fail()) {
         title_box = new Fl_Box(420+10, 0, 250, 125);
         title_box->box(FL_NO_BOX);
@@ -98,9 +111,18 @@ int main(int argc, char** argv) {
         title_gif->start();  // Required to initialize frames
         title_gif->stop();   // Immediately stop auto-play
 
+        head_box = new Fl_Box(400, 630, 250, 300);
+        head_box->box(FL_NO_BOX);
+        head_box->align(FL_ALIGN_CLIP);
+        head_box->color(FL_LIGHT1);
+        head_box->image(head_gif);
+        head_gif->resize(0.8);
+        head_gif->start();  // Required to initialize frames
+        head_gif->stop();   // Immediately stop auto-play
+
 
         // Start custom animation timer
-        Fl::add_timeout(0.02, gif_timer, title_gif);  // 30 FPS
+        Fl::add_timeout(0.04, gif_timer, title_gif);  // 30 FPS
     }
 
     // Create scrollable dropdown (Fl_Select_Browser)
@@ -123,7 +145,7 @@ int main(int argc, char** argv) {
     menu_choice->set_visible_focus();  // Enable keyboard navigation
 
     // Create start button
-    auto* start_btn = new Fl_Button(20, 580, 80, 30, "Start");
+    auto* start_btn = new Fl_Button(20, 775, 80, 30, "Start");
     start_btn->callback(start_callback);
 
     // Create algorithm toggle buttons
@@ -141,7 +163,7 @@ int main(int argc, char** argv) {
     output_box->textsize(12);
     output_box->value("System Ready\n\n");
 
-    //gif
+    text_box = new Fl_Multiline_Output(400, 500, 200, 50);
 
     window->end();
     window->show();
