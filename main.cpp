@@ -13,8 +13,9 @@
 #include "Graph.h"
 #include <FL/Fl_Select_Browser.H>
 #include <FL/Fl_Anim_GIF_Image.H>
-
+#include <format>
 #include "FL/Fl_Box.H"
+#include "FL/Fl_Text_Display.H"
 using namespace std;
 //TODO:
 //replace multiline output w text display
@@ -24,8 +25,10 @@ using namespace std;
 
 // Widget pointers
 Fl_Select_Browser* menu_choice;
-Fl_Multiline_Output* output_box;
-Fl_Multiline_Output* text_box;
+Fl_Text_Buffer* output_buffer;
+Fl_Text_Display* output_box;
+Fl_Text_Buffer* text_buffer;
+Fl_Text_Display* text_box;
 Fl_Round_Button* toggle_on;
 Fl_Round_Button* toggle_off;
 Fl_Anim_GIF_Image* title_gif = nullptr;
@@ -60,12 +63,11 @@ void start_callback(Fl_Widget*, void*) {
     const char* state = toggle_on->value() ? "Dijkstra's" : "Random Walk";  // Updated state labels
 
     // Update output
-    std::string current = output_box->value() ? output_box->value() : "";
+    std::string current = output_buffer->text() ? output_buffer->text() : "";
     current += "Selected: " + std::string(selected) + "\n";
     current += "Algorithm: " + std::string(state) + "\n";
     current += "Start button pressed!\n\n";
-    output_box->value(current.c_str());
-    output_box->value(output_box->value());
+    output_buffer->text(current.c_str());
 }
 
 // Toggle buttons callback
@@ -73,12 +75,28 @@ void toggle_callback(Fl_Widget*, void*) {
     // Determine active state
     const char* state = toggle_on->value() ? "Dijkstra's" : "Random Walk";
 
-    std::string current = output_box->value() ? output_box->value() : "";
+    std::string current = output_buffer->text() ? output_buffer->text() : "";
     current += "Algorithm switched to " + std::string(state) + "\n\n";
-    output_box->value(current.c_str());
+    output_buffer->text(current.c_str());
 }
 
+void genre_callback(Fl_Widget* widget, void*) {
+    Fl_Select_Browser* browser = static_cast<Fl_Select_Browser*>(widget);
+    const int selection = browser->value();
+    if (selection >= 1) {  // FLTK browser indices start at 1
+        const char* selected = browser->text(selection);
+        string genre = string(selected);
+        vector<string> comments = {"{}? good choice, i guess", "i never was a fan of {}", "pshhh, {}? what are you, five?",
+        "you know that one song that goes \"bum bum baaah nuh\"? classic", "booooo!", "not a big fan of {} personally", "ehhh {} is ok imo",
+        "now {} is just bad taste", "ooh i like {}", "boooooooring", "*sighs smugly*", "need to come up with a new catchphrase"};
 
+        string snarky_comment = format(comments[rescount], genre);
+        text_buffer->text(snarky_comment.c_str());  // Replace content
+        // Optional: Append instead of replace
+        // text_buffer->append("\nSelected: ");
+        // text_buffer->append(selected);
+    }
+}
 
 
 int main(int argc, char** argv) {
@@ -110,7 +128,6 @@ int main(int argc, char** argv) {
         title_gif->resize(1.25);
         title_gif->start();  // Required to initialize frames
         title_gif->stop();   // Immediately stop auto-play
-
         head_box = new Fl_Box(400, 630, 250, 300);
         head_box->box(FL_NO_BOX);
         head_box->align(FL_ALIGN_CLIP);
@@ -127,6 +144,7 @@ int main(int argc, char** argv) {
 
     // Create scrollable dropdown (Fl_Select_Browser)
     menu_choice = new Fl_Select_Browser(20, 20, 200, 200, "Choose a Genre:");  // X, Y, W, H
+    menu_choice->callback(genre_callback);
     menu_choice->has_scrollbar(Fl_Browser_::VERTICAL_ALWAYS);  // Force vertical scrollbar
     menu_choice->textsize(12);  // Set font size
     menu_choice->align(FL_ALIGN_TOP_LEFT);  // Label alignment
@@ -158,12 +176,16 @@ int main(int argc, char** argv) {
     toggle_off->callback(toggle_callback);
 
     // Create output text box
-    output_box = new Fl_Multiline_Output(20, 250, 300, 500);  // Adjusted position
+    output_box = new Fl_Text_Display(20, 250, 300, 500);  // Adjusted position
+    output_buffer = new Fl_Text_Buffer();
+    output_box->buffer(output_buffer);
     output_box->textfont(FL_COURIER);
     output_box->textsize(12);
-    output_box->value("System Ready\n\n");
+    output_buffer->text("System Ready\n\n");
 
-    text_box = new Fl_Multiline_Output(400, 500, 200, 50);
+    text_box = new Fl_Text_Display(420, 625, 200, 50);
+    text_buffer = new Fl_Text_Buffer();
+    text_box->buffer(text_buffer);
 
     window->end();
     window->show();
