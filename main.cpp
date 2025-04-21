@@ -37,6 +37,7 @@ Fl_Box* title_box = nullptr;
 Fl_Box* head_box = nullptr;
 bool gif_playing = true;
 bool a = true;
+int rescount = 0;
 // Custom timer callback for GIF animation
 void gif_timer(void*) {
     if (gif_playing && title_gif && !title_gif->fail()) {
@@ -90,7 +91,11 @@ void genre_callback(Fl_Widget* widget, void*) {
         "you know that one song that goes \"bum bum baaah nuh\"? classic", "booooo!", "not a big fan of {} personally", "ehhh {} is ok imo",
         "now {} is just bad taste", "ooh i like {}", "boooooooring", "*sighs smugly*", "need to come up with a new catchphrase"};
 
-        string snarky_comment = format(comments[rescount], genre);
+        string snarky_comment = vformat(comments[rescount], make_format_args(genre));
+        rescount++;
+        if(rescount >= comments.size()) {
+            rescount = 0;
+        }
         text_buffer->text(snarky_comment.c_str());  // Replace content
         // Optional: Append instead of replace
         // text_buffer->append("\nSelected: ");
