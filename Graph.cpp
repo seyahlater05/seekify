@@ -10,6 +10,8 @@
 #include <fstream>
 #include <ranges>
 #include <set>
+#include <queue>
+#include <random>
 
 vector<float> Graph::GetFeatureVector(const Song& song) {
     return {
@@ -244,4 +246,135 @@ set<string> Graph::FindGenres(ifstream& file) {
     }
 
     return genres;
+}
+
+vector<pair<Song*, float>> Graph::Dijsktra(string genre, int k){
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_int_distribution<> distr(0, 999);
+    int startIndex = distr(gen);
+    vector<vector<float>> similarityMatrix = adjacencyMatrices.at(genre);
+    int n = similarityMatrix.size();
+    vector<float> dist(n, numeric_limits<float>::infinity());
+    vector<bool> visited(n, false);
+    // Min heap
+    priority_queue<pair<float, int>, vector<pair<float, int>>, greater<>> pq;
+    dist[startIndex] = 0.0f;
+    pq.push({0.0f, startIndex});
+
+    vector<pair<int, float>> result;
+
+    while(!pq.empty() && result.size() < k){
+        auto [cost, u] = pq.top();
+        pq.pop();
+        if (visited[u]) continue;
+        visited[u] = true;
+
+        if (u != startIndex){
+            result.emplace_back(u, cost);
+        }
+
+        for (int v = 0; v < n; ++v){
+            if (!visited[v] && similarityMatrix[u][v] > 0.0f){
+                float sim = similarityMatrix[u][v]; // similarity score
+                float newCost = dist[u] + (1.0f / sim); // 1/sim
+                if (newCost < dist[v]) {
+                    dist[v] = newCost;
+                    pq.push({newCost, v});
+                }
+            }
+        }
+    }
+    sort(result.begin(), result.end(), [&](auto&a, auto& b){
+        return similarityMatrix[startIndex][a.first] > similarityMatrix[startIndex][b.first];
+    });
+    vector<pair<Song*, float>> similar;
+    for (int i = 0; i < result.size(); i++){
+//        cout << result[i].first << endl;
+//        cout << genreMap[genre][result[i].first].track_name << endl;
+        similar.push_back(make_pair(&genreMap[genre][result[i].first], result[i].second));
+    }
+    return similar;
+}
+
+vector<pair<Song*, float>> Graph::RWR(string genre, int k) {
+    float restartProb = 0.15f;
+    float epsilon = 1e-6f;
+    int maxIter = 100;
+    vector<vector<float>> similarityMatrix = adjacencyMatrices[genre];
+    int n = similarityMatrix.size();
+
+    // Random start index
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_int_distribution<> distr(0, n - 1);
+    int startIndex = distr(gen);
+    cout << "SONG : " << genreMap[genre][startIndex].track_name << endl;
+    vector<float> prob(n, 0.0f);
+    vector<float> prevProb(n, 0.0f);
+    prob[startIndex] = 1.0f;
+
+    // Build transition matrix
+    vector<vector<float>> transMatrix(n, vector<float>(n, 0.0f));
+    for (int i = 0; i < n; ++i) {
+        float rowSum = 0.0f;
+        for (int j = 0; j < n; ++j) {
+            if (similarityMatrix[i][j] != 1e9f) {
+                rowSum += similarityMatrix[i][j];
+            }
+        }
+        if (rowSum > 0) {
+            for (int j = 0; j < n; ++j) {
+                if (similarityMatrix[i][j] != 1e9f) {
+                    transMatrix[i][j] = similarityMatrix[i][j] / rowSum;
+                }
+            }
+        } else {
+            transMatrix[i][i] = 1.0f; // stay in place if no out-links
+        }
+    }
+
+    // RWR iterations
+    for (int iter = 0; iter < maxIter; ++iter) {
+        prevProb = prob;
+        vector<float> nextProb(n, 0.0f);
+
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                nextProb[i] += (1.0f - restartProb) * transMatrix[j][i] * prob[j];
+            }
+        }
+
+        // Restart
+        nextProb[startIndex] += restartProb;
+
+        // Check for convergence
+        float diff = 0.0f;
+        for (int i = 0; i < n; ++i) {
+            diff += fabs(nextProb[i] - prevProb[i]);
+        }
+
+        prob = nextProb;
+        if (diff < epsilon) break;
+    }
+
+    // Min-heap to find top K songs (excluding start)
+    priority_queue<pair<float, int>, vector<pair<float, int>>, greater<>> pq;
+    for (int i = 0; i < n; ++i) {
+        if (i == startIndex) continue;
+        pq.push({prob[i], i});
+        if (pq.size() > k) pq.pop();
+    }
+
+    // Extract results
+    vector<Song>& songs = genreMap[genre];
+    vector<pair<Song*, float>> topK;
+    while (!pq.empty()) {
+        auto [score, idx] = pq.top();
+        pq.pop();
+        topK.emplace_back(&songs[idx], score);
+    }
+
+    reverse(topK.begin(), topK.end()); // descending order
+    return topK;
 }
