@@ -63,12 +63,42 @@ void start_callback(Fl_Widget*, void*) {
 
     // Get toggle state
     const char* state = toggle_on->value() ? "Dijkstra's" : "Random Walk";  // Updated state labels
-
+    // random = true is dijsktra
     // Update output
     std::string current = output_buffer->text() ? output_buffer->text() : "";
     current += "Selected: " + std::string(selected) + "\n";
     current += "Algorithm: " + std::string(state) + "\n";
     current += "Start button pressed!\n\n";
+    output_buffer->text(current.c_str());
+    ifstream file("dataset.csv");
+    if (!random){
+        Graph graph;
+        graph.LoadGenreFromCSV(file, selected);
+        vector<pair<Song*, float>> similars = graph.Dijsktra(selected);
+        auto songSelected = similars.rbegin();
+        string song = songSelected->first->track_name;
+        current += "Songs similar to \"" + song + "\"\n\n";
+        similars.pop_back();
+        for (auto i : similars){
+            current += "\"" + i.first->track_name + "\"\n";
+        }
+        current += "\n";
+    }
+    if (random)
+    {
+        Graph graph;
+        graph.LoadGenreFromCSV(file, selected);
+        vector<pair<Song *, float>> similars = graph.RWR(selected);
+        auto songSelected = similars.rbegin();
+        string song = songSelected->first->track_name;
+        current += "Songs similar to \"" + song + "\"\n\n";
+        similars.pop_back();
+        for (auto i: similars)
+        {
+            current += "\"" + i.first->track_name + "\"\n";
+        }
+        current += "\n";
+    }
     output_buffer->text(current.c_str());
 }
 
