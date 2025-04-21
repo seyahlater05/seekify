@@ -253,6 +253,7 @@ vector<pair<Song*, float>> Graph::Dijsktra(string genre, int k){
     mt19937 gen(rd());
     uniform_int_distribution<> distr(0, 999);
     int startIndex = distr(gen);
+    cout << "SONG : " << genreMap[genre][startIndex].track_name << endl;
     vector<vector<float>> similarityMatrix = adjacencyMatrices.at(genre);
     int n = similarityMatrix.size();
     vector<float> dist(n, numeric_limits<float>::infinity());
@@ -294,6 +295,7 @@ vector<pair<Song*, float>> Graph::Dijsktra(string genre, int k){
 //        cout << genreMap[genre][result[i].first].track_name << endl;
         similar.push_back(make_pair(&genreMap[genre][result[i].first], result[i].second));
     }
+    similar.push_back(make_pair(&genreMap[genre][startIndex], 0));
     return similar;
 }
 
@@ -376,5 +378,6 @@ vector<pair<Song*, float>> Graph::RWR(string genre, int k) {
     }
 
     reverse(topK.begin(), topK.end()); // descending order
+    topK.push_back(make_pair(&genreMap[genre][startIndex], 0));
     return topK;
 }
