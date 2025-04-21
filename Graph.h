@@ -35,4 +35,7 @@ public:
     vector<string> GetAllGenres() const;
 
     static set<string> FindGenres(ifstream& file);
+
+    vector<pair<Song*, float>> Dijsktra(string genre, int k = 15);
+    vector<pair<Song*, float>> RWR(string genre, int k =15);
 };
