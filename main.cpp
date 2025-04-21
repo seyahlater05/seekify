@@ -37,6 +37,7 @@ Fl_Box* title_box = nullptr;
 Fl_Box* head_box = nullptr;
 bool gif_playing = true;
 bool a = true;
+bool random = true;
 int rescount = 0;
 // Custom timer callback for GIF animation
 void gif_timer(void*) {
@@ -75,7 +76,7 @@ void start_callback(Fl_Widget*, void*) {
 void toggle_callback(Fl_Widget*, void*) {
     // Determine active state
     const char* state = toggle_on->value() ? "Dijkstra's" : "Random Walk";
-
+    random = !random;
     std::string current = output_buffer->text() ? output_buffer->text() : "";
     current += "Algorithm switched to " + std::string(state) + "\n\n";
     output_buffer->text(current.c_str());
@@ -133,7 +134,7 @@ int main(int argc, char** argv) {
         title_gif->resize(1.25);
         title_gif->start();  // Required to initialize frames
         title_gif->stop();   // Immediately stop auto-play
-        head_box = new Fl_Box(400, 630, 250, 300);
+        head_box = new Fl_Box(420, 640, 250, 300);
         head_box->box(FL_NO_BOX);
         head_box->align(FL_ALIGN_CLIP);
         head_box->color(FL_LIGHT1);
@@ -188,7 +189,7 @@ int main(int argc, char** argv) {
     output_box->textsize(12);
     output_buffer->text("System Ready\n\n");
 
-    text_box = new Fl_Text_Display(420, 625, 200, 50);
+    text_box = new Fl_Text_Display(420, 625, 250, 50);
     text_buffer = new Fl_Text_Buffer();
     text_box->buffer(text_buffer);
 
