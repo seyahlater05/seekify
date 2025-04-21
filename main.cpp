@@ -62,7 +62,9 @@ void start_callback(Fl_Widget*, void*) {
 
     // Get toggle state
     const char* state = toggle_on->value() ? "Dijkstra's" : "Random Walk";  // Updated state labels
-
+    cout << "SELCTED: " << selected << endl;
+    cout << "state : " << state;
+    // random = true is dijsktra
     // Update output
     std::string current = output_buffer->text() ? output_buffer->text() : "";
     current += "Selected: " + std::string(selected) + "\n";
