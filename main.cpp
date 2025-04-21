@@ -12,29 +12,46 @@
 #include <random>
 #include "Graph.h"
 #include <FL/Fl_Select_Browser.H>
+#include <FL/Fl_Anim_GIF_Image.H>
+
+#include "FL/Fl_Box.H"
 using namespace std;
 
 // Widget pointers
-Fl_Choice* menu_choice;
+Fl_Select_Browser* menu_choice;
 Fl_Multiline_Output* output_box;
 Fl_Round_Button* toggle_on;
 Fl_Round_Button* toggle_off;
+Fl_Anim_GIF_Image* title_gif = nullptr;
+Fl_Box* title_box = nullptr;
+bool gif_playing = true;
 
+// Custom timer callback for GIF animation
+void gif_timer(void*) {
+    if (gif_playing && title_gif && !title_gif->fail()) {
+        // Advance animation frame WITHOUT automatic redraw
+        title_gif->next();
+
+        // Force redraw ONLY the GIF box area
+        title_box->redraw();
+
+        // Maintain animation speed (30 FPS)
+        Fl::repeat_timeout(0.02, gif_timer);
+    }
+}
 // Start button callback
 void start_callback(Fl_Widget*, void*) {
     // Get selected menu item
     const int selection = menu_choice->value();
-    const Fl_Menu_Item* menu = menu_choice->menu();
-    const char* selected = menu[selection].label();
+    const char* selected = menu_choice->text(selection);  // Get text directly from browser
 
     // Get toggle state
-    auto state = "Random Walk";
-    if (toggle_on->value()) state = "ON";
+    const char* state = toggle_on->value() ? "Dijkstra's" : "Random Walk";  // Updated state labels
 
     // Update output
     std::string current = output_box->value() ? output_box->value() : "";
     current += "Selected: " + std::string(selected) + "\n";
-    current += "Toggle state: " + std::string(state) + "\n";
+    current += "Algorithm: " + std::string(state) + "\n";
     current += "Start button pressed!\n\n";
     output_box->value(current.c_str());
 }
@@ -42,13 +59,13 @@ void start_callback(Fl_Widget*, void*) {
 // Toggle buttons callback
 void toggle_callback(Fl_Widget*, void*) {
     // Determine active state
-    auto state = "OFF";
-    if (toggle_on->value()) state = "ON";
+    const char* state = toggle_on->value() ? "Dijkstra's" : "Random Walk";
 
     std::string current = output_box->value() ? output_box->value() : "";
-    current += "Toggle switched to " + std::string(state) + "\n\n";
+    current += "Algorithm switched to " + std::string(state) + "\n\n";
     output_box->value(current.c_str());
 }
+
 
 
 
@@ -66,43 +83,69 @@ int main(int argc, char** argv) {
     int w = 700;
     int h = 900;
     const auto window = new Fl_Window(w, h, "Control Panel");
+    window->begin();
     window->color(FL_LIGHT1);
+    Fl::visual(FL_DOUBLE|FL_RGB);
 
-    // Create drop-down menu
-    Fl_Select_Browser* browser = new Fl_Select_Browser(50, 50, 200, 200);
-    browser->has_scrollbar(Fl_Browser_::VERTICAL);
+    title_gif = new Fl_Anim_GIF_Image("superseekify.gif");
+    if (title_gif && !title_gif->fail()) {
+        title_box = new Fl_Box(420+10, 0, 250, 125);
+        title_box->box(FL_NO_BOX);
+        title_box->align(FL_ALIGN_CLIP);
+        title_box->color(FL_LIGHT1);
+        title_box->image(title_gif);
+        title_gif->resize(1.25);
+        title_gif->start();  // Required to initialize frames
+        title_gif->stop();   // Immediately stop auto-play
+
+
+        // Start custom animation timer
+        Fl::add_timeout(0.02, gif_timer, title_gif);  // 30 FPS
+    }
+
+    // Create scrollable dropdown (Fl_Select_Browser)
+    menu_choice = new Fl_Select_Browser(20, 20, 200, 200, "Choose a Genre:");  // X, Y, W, H
+    menu_choice->has_scrollbar(Fl_Browser_::VERTICAL_ALWAYS);  // Force vertical scrollbar
+    menu_choice->textsize(12);  // Set font size
+    menu_choice->align(FL_ALIGN_TOP_LEFT);  // Label alignment
+
+    // Populate with genres
     for(const string& s : genre_list) {
         menu_choice->add(s.c_str());
     }
-    menu_choice->menu()->set_max_visible_items(10); // Show max 10 items at once
-    menu_choice->menu()->menu_button_width(15);
-    menu_choice->value(0);  // Set default selection
+    if(!genre_list.empty()) {
+        menu_choice->select(1);
+        menu_choice->topline(1);
+    }
+    // Set visible items (calculated based on height and text size)
+    const int item_height = menu_choice->textsize() + 8;  // Text size + padding
+    const int visible_items = 200 / item_height;  // 200 is the browser height
+    menu_choice->set_visible_focus();  // Enable keyboard navigation
 
     // Create start button
-    auto* start_btn = new Fl_Button(22, 580, 80, 30, "Start");
+    auto* start_btn = new Fl_Button(20, 580, 80, 30, "Start");
     start_btn->callback(start_callback);
 
-    // Create toggle buttons (radio group)
-    toggle_on = new Fl_Round_Button(400, 20, 80, 30, "ON");
-    toggle_off = new Fl_Round_Button(400, 40, 80, 30, "OFF");
-
-    // Configure as radio buttons
+    // Create algorithm toggle buttons
+    toggle_on = new Fl_Round_Button(250, 20, 120, 30, "Dijkstra's");
+    toggle_off = new Fl_Round_Button(250, 60, 120, 30, "Random Walk");
     toggle_on->type(FL_RADIO_BUTTON);
     toggle_off->type(FL_RADIO_BUTTON);
-    toggle_off->value(1);  // Default to OFF position
-
-    // Set common callback
+    toggle_off->value(1);  // Default to Random Walk
     toggle_on->callback(toggle_callback);
     toggle_off->callback(toggle_callback);
 
     // Create output text box
-    output_box = new Fl_Multiline_Output(20, 75, 300, 500);
+    output_box = new Fl_Multiline_Output(20, 250, 300, 500);  // Adjusted position
     output_box->textfont(FL_COURIER);
     output_box->textsize(12);
-    output_box->value("System Ready\n\n");  // Initial message
+    output_box->value("System Ready\n\n");
+
+    //gif
 
     window->end();
     window->show();
+
     return Fl::run();
     //
     // cout << "Enter a genre: ";
