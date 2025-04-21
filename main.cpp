@@ -17,6 +17,7 @@
 #include "FL/Fl_Box.H"
 #include "FL/Fl_Check_Button.H"
 #include "FL/Fl_Text_Display.H"
+#include "FL/Fl_Text_Editor.H"
 using namespace std;
 //TODO:
 //replace multiline output w text display
@@ -142,8 +143,8 @@ void genre_callback(Fl_Widget* widget, void*) {
         const char* selected = browser->text(selection);
         string genre = string(selected);
         vector<string> comments = {"{}? good choice, i guess", "i never was a fan of {}", "pshhh, {}? what are you, five?",
-        "you know that one song that goes \"bum bum baaah nuh\"? classic", "booooo!", "not a big fan of {} personally", "ehhh {} is ok imo",
-        "now {} is just bad taste", "ooh i like {}", "boooooooring", "*sighs smugly*", "need to come up with a new catchphrase"};
+        "you know that one song that goes \n\"bum bum baaah nuh\"? classic!", "booooo!", "not a big fan of {} personally", "ehhh {} is ok imo",
+        "now {} is just bad taste", "ooh i like {}", "boooooooring", "*sighs smugly*", "need to come up with a new\ncatchphrase"};
 
         string snarky_comment = vformat(comments[rescount], make_format_args(genre));
         rescount++;
@@ -179,7 +180,7 @@ int main(int argc, char** argv) {
     title_gif = new Fl_Anim_GIF_Image("superseekify.gif");
     head_gif = new Fl_Anim_GIF_Image("head.gif");
     if (title_gif && !title_gif->fail()) {
-        title_box = new Fl_Box(360, -40, 350, 250);
+        title_box = new Fl_Box(350, -40, 350, 250);
         title_box->box(FL_NO_BOX);
         title_box->align(FL_ALIGN_CLIP);
         title_box->color(FL_LIGHT1);
@@ -187,7 +188,7 @@ int main(int argc, char** argv) {
         title_gif->resize(1.75);
         title_gif->start();  // Required to initialize frames
         title_gif->stop();   // Immediately stop auto-play
-        head_box = new Fl_Box(360, 640, 250, 300);
+        head_box = new Fl_Box(360, 650, 250, 300);
         head_box->box(FL_NO_BOX);
         head_box->align(FL_ALIGN_CLIP);
         head_box->color(FL_LIGHT1);
@@ -245,6 +246,9 @@ int main(int argc, char** argv) {
     output_box->textsize(12);
     output_buffer->text("System Ready\n\n");
 
+    Fl_Box* text_up = new Fl_Box(350, 615, 270, 70, "Official Music Opinions:");
+    text_up->align(FL_ALIGN_TOP_LEFT);
+    text_up->box(FL_UP_BOX);
     text_box = new Fl_Text_Display(360, 625, 250, 50);
     text_buffer = new Fl_Text_Buffer();
     text_box->buffer(text_buffer);
@@ -274,54 +278,4 @@ int main(int argc, char** argv) {
     window->show();
 
     return Fl::run();
-    //
-    // cout << "Enter a genre: ";
-    // getline(cin, genre);
-    //
-    //
-    //
-    // Graph graph;
-    // graph.LoadGenreFromCSV(file, genre); // Only loads songs from that genre
-    //
-    // const auto& songs = graph.GetSongsByGenre(genre);
-    // const auto& matrix = graph.GetAdjacencyMatrix(genre);
-    //
-    // if (songs.size() < 10) {
-    //     cout << "Not enough songs in this genre to find 10 closest.\n";
-    //     return 1;
-    // }
-    //
-    // // Pick a random song
-    // random_device rd;
-    // mt19937 gen(rd());
-    // uniform_int_distribution<> dist(0, songs.size() - 1);
-    // int startIndex = dist(gen);
-    //
-    // cout << "\nStarting song: " << songs[startIndex].track_name << " by " << songs[startIndex].artists << "\n\n";
-    //
-    // // Set to track unique recommendations by name+artist
-    // set<string> seen;
-    // seen.insert(songs[startIndex].track_name + songs[startIndex].artists);
-    //
-    // vector<pair<float, int>> distances;
-    // for (size_t i = 0; i < matrix[startIndex].size(); ++i) {
-    //     if (i != static_cast<size_t>(startIndex)) {
-    //         distances.emplace_back(matrix[startIndex][i], i);
-    //     }
-    // }
-    //
-    // sort(distances.begin(), distances.end());
-    //
-    // cout << "9 closest songs:\n";
-    // int count = 0;
-    // for (const auto& [dist, index] : distances) {
-    //     string key = songs[index].track_name + songs[index].artists;
-    //     if (seen.count(key)) continue;
-    //
-    //     seen.insert(key);
-    //     cout << " - " << songs[index].track_name << " by " << songs[index].artists << "\n";
-    //     if (++count == 9) break;
-    // }
-    //
-    // return 0;
 }
