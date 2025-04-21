@@ -25,11 +25,11 @@ private:
 
     static vector<float> GetFeatureVector(const Song& song);
 
-    static float EuclideanDistance(const vector<float>& a, const vector<float>& b);
+    static float EuclideanDistance(const vector<float>& a, const vector<float>& b, vector<bool> &metrics);
 
 public:
-    void LoadFromCSV(ifstream& file);
-    void LoadGenreFromCSV(std::ifstream& file, const std::string& target_genre);
+    void LoadFromCSV(ifstream& file, vector<bool> &metrics);
+    void LoadGenreFromCSV(std::ifstream& file, const std::string& target_genre, vector<bool> &metrics);
     const vector<vector<float>>& GetAdjacencyMatrix(const string& genre) const;
     const vector<Song>& GetSongsByGenre(const string& genre) const;
     vector<string> GetAllGenres() const;

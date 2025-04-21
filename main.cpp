@@ -15,6 +15,7 @@
 #include <FL/Fl_Anim_GIF_Image.H>
 #include <format>
 #include "FL/Fl_Box.H"
+#include "FL/Fl_Check_Button.H"
 #include "FL/Fl_Text_Display.H"
 using namespace std;
 //TODO:
@@ -35,10 +36,32 @@ Fl_Anim_GIF_Image* title_gif = nullptr;
 Fl_Anim_GIF_Image* head_gif = nullptr;
 Fl_Box* title_box = nullptr;
 Fl_Box* head_box = nullptr;
+Fl_Check_Button* dance;
+Fl_Check_Button* energy;
+Fl_Check_Button* speech;
+Fl_Check_Button* inst;
+Fl_Check_Button* live;
+Fl_Check_Button* valence;
+Fl_Check_Button* acoust;
+Fl_Check_Button* tempo;
+
 bool gif_playing = true;
 bool a = true;
 bool random = true;
 int rescount = 0;
+vector<bool> metrics(8,0);
+
+void check_callback(Fl_Widget*, void*) {
+    metrics[0] = (dance->value() != 0);
+    metrics[1] = (energy->value() != 0);
+    metrics[2] = (speech->value() != 0);
+    metrics[3] = (acoust->value() != 0);
+    metrics[4] = (inst->value() != 0);
+    metrics[5] = (live->value() != 0);
+    metrics[6] = (valence->value() != 0);
+    metrics[7] = (tempo->value() != 0);
+}
+
 // Custom timer callback for GIF animation
 void gif_timer(void*) {
     if (gif_playing && title_gif && !title_gif->fail()) {
@@ -73,7 +96,7 @@ void start_callback(Fl_Widget*, void*) {
     ifstream file("dataset.csv");
     if (!random){
         Graph graph;
-        graph.LoadGenreFromCSV(file, selected);
+        graph.LoadGenreFromCSV(file, selected, metrics);
         vector<pair<Song*, float>> similars = graph.Dijsktra(selected);
         auto songSelected = similars.rbegin();
         string song = songSelected->first->track_name;
@@ -87,7 +110,7 @@ void start_callback(Fl_Widget*, void*) {
     if (random)
     {
         Graph graph;
-        graph.LoadGenreFromCSV(file, selected);
+        graph.LoadGenreFromCSV(file, selected, metrics);
         vector<pair<Song *, float>> similars = graph.RWR(selected);
         auto songSelected = similars.rbegin();
         string song = songSelected->first->track_name;
@@ -156,15 +179,15 @@ int main(int argc, char** argv) {
     title_gif = new Fl_Anim_GIF_Image("superseekify.gif");
     head_gif = new Fl_Anim_GIF_Image("head.gif");
     if (title_gif && !title_gif->fail()) {
-        title_box = new Fl_Box(420+10, 0, 250, 125);
+        title_box = new Fl_Box(360, -40, 350, 250);
         title_box->box(FL_NO_BOX);
         title_box->align(FL_ALIGN_CLIP);
         title_box->color(FL_LIGHT1);
         title_box->image(title_gif);
-        title_gif->resize(1.25);
+        title_gif->resize(1.75);
         title_gif->start();  // Required to initialize frames
         title_gif->stop();   // Immediately stop auto-play
-        head_box = new Fl_Box(420, 640, 250, 300);
+        head_box = new Fl_Box(360, 640, 250, 300);
         head_box->box(FL_NO_BOX);
         head_box->align(FL_ALIGN_CLIP);
         head_box->color(FL_LIGHT1);
@@ -203,8 +226,11 @@ int main(int argc, char** argv) {
     start_btn->callback(start_callback);
 
     // Create algorithm toggle buttons
-    toggle_on = new Fl_Round_Button(250, 20, 120, 30, "Dijkstra's");
-    toggle_off = new Fl_Round_Button(250, 60, 120, 30, "Random Walk");
+    Fl_Box* alg_box = new Fl_Box(230, 25, 120, 80, "Algorithm:");
+    alg_box->align(FL_ALIGN_TOP_LEFT);
+    alg_box->box(FL_UP_BOX);
+    toggle_on = new Fl_Round_Button(235, 30, 120, 30, "Dijkstra's");
+    toggle_off = new Fl_Round_Button(235, 60, 120, 30, "Random Walk");
     toggle_on->type(FL_RADIO_BUTTON);
     toggle_off->type(FL_RADIO_BUTTON);
     toggle_off->value(1);  // Default to Random Walk
@@ -219,9 +245,30 @@ int main(int argc, char** argv) {
     output_box->textsize(12);
     output_buffer->text("System Ready\n\n");
 
-    text_box = new Fl_Text_Display(420, 625, 250, 50);
+    text_box = new Fl_Text_Display(360, 625, 250, 50);
     text_buffer = new Fl_Text_Buffer();
     text_box->buffer(text_buffer);
+
+    Fl_Box* check_box = new Fl_Box(360, 280, 180, 205, "Choose songs with similar:");
+    check_box->box(FL_UP_BOX);
+    check_box->align(FL_ALIGN_TOP_LEFT);
+    dance = new Fl_Check_Button(380, 300, 20,20, "Danceability");
+    energy = new Fl_Check_Button(380, 320, 20,20, "Energy");
+    speech = new Fl_Check_Button(380, 340, 20,20, "Speechiness");
+    acoust = new Fl_Check_Button(380, 360, 20,20, "Acousticness");
+    inst = new Fl_Check_Button(380, 380, 20,20, "Instrumentalness");
+    live = new Fl_Check_Button(380, 400, 20,20, "Liveliness");
+    valence = new Fl_Check_Button(380, 420, 20,20, "Valence");
+    tempo = new Fl_Check_Button(380, 440, 20,20, "Tempo");
+    dance->callback(check_callback);
+    energy->callback(check_callback);
+    speech->callback(check_callback);
+    acoust->callback(check_callback);
+    inst->callback(check_callback);
+    live->callback(check_callback);
+    valence->callback(check_callback);
+    tempo->callback(check_callback);
+
 
     window->end();
     window->show();

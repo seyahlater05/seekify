@@ -26,11 +26,13 @@ vector<float> Graph::GetFeatureVector(const Song& song) {
     };
 }
 
-float Graph::EuclideanDistance(const vector<float>& a, const vector<float>& b) {
+float Graph::EuclideanDistance(const vector<float>& a, const vector<float>& b, vector<bool> &metrics) {
     float sum = 0.0f;
     for (size_t i = 0; i < a.size(); ++i) {
-        const float diff = a[i] - b[i];
-        sum += diff * diff;
+        if (metrics[i]) {
+            const float diff = a[i] - b[i];
+            sum += diff * diff;
+        }
     }
     return sqrt(sum);
 }
@@ -51,7 +53,7 @@ vector<string> Graph::GetAllGenres() const {
     return genres;
 }
 
-void Graph::LoadFromCSV(ifstream& file) {
+void Graph::LoadFromCSV(ifstream& file, vector<bool> &metrics) {
     string temp;
     getline(file, temp);
 
@@ -116,7 +118,7 @@ void Graph::LoadFromCSV(ifstream& file) {
 
         vector<float> newRow(n + 1, 0.0f);
         for (size_t i = 0; i < n; ++i) {
-            float dist = EuclideanDistance(GetFeatureVector(song), GetFeatureVector(songList[i]));
+            float dist = EuclideanDistance(GetFeatureVector(song), GetFeatureVector(songList[i]), metrics);
             adjacencyMatrices[genre][i].push_back(dist);
             newRow[i] = dist;
         }
@@ -126,7 +128,7 @@ void Graph::LoadFromCSV(ifstream& file) {
     }
 }
 
-void Graph::LoadGenreFromCSV(std::ifstream& file, const std::string& target_genre) {
+void Graph::LoadGenreFromCSV(std::ifstream& file, const std::string& target_genre, vector<bool> &metrics) {
     std::string headerLine;
     std::getline(file, headerLine);
 
@@ -201,7 +203,7 @@ void Graph::LoadGenreFromCSV(std::ifstream& file, const std::string& target_genr
             if (i == j) {
                 matrix[i][j] = 1e9f;
             } else {
-                matrix[i][j] = EuclideanDistance(GetFeatureVector(songs[i]), GetFeatureVector(songs[j]));
+                matrix[i][j] = EuclideanDistance(GetFeatureVector(songs[i]), GetFeatureVector(songs[j]), metrics);
             }
         }
     }
