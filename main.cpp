@@ -16,6 +16,7 @@
 #include <format>
 #include "FL/Fl_Box.H"
 #include "FL/Fl_Text_Display.H"
+#include <FL/Fl_Timer.H>
 using namespace std;
 //TODO:
 //replace multiline output w text display
@@ -35,6 +36,7 @@ Fl_Anim_GIF_Image* title_gif = nullptr;
 Fl_Anim_GIF_Image* head_gif = nullptr;
 Fl_Box* title_box = nullptr;
 Fl_Box* head_box = nullptr;
+Fl_Timer* timer;
 bool gif_playing = true;
 bool a = true;
 bool random = true;
@@ -70,6 +72,7 @@ void start_callback(Fl_Widget*, void*) {
     current += "Algorithm: " + std::string(state) + "\n";
     current += "Start button pressed!\n\n";
     output_buffer->text(current.c_str());
+
 }
 
 // Toggle buttons callback
@@ -192,6 +195,8 @@ int main(int argc, char** argv) {
     text_box = new Fl_Text_Display(420, 625, 250, 50);
     text_buffer = new Fl_Text_Buffer();
     text_box->buffer(text_buffer);
+
+    timer = new Fl_Timer(1,0,0,100,100,"Timer");
 
     window->end();
     window->show();
