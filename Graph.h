@@ -19,7 +19,6 @@ struct Song {
 };
 
 class Graph {
-private:
     unordered_map<string, vector<Song>> genreMap;
     unordered_map<string, vector<vector<float>>> adjacencyMatrices;
 
@@ -36,6 +35,6 @@ public:
 
     static set<string> FindGenres(ifstream& file);
 
-    vector<pair<Song*, float>> Dijsktra(string genre, int k = 15);
-    vector<pair<Song*, float>> RWR(string genre, int k =15);
+    vector<pair<Song*, float>> Dijsktra(const string &genre, int k = 15);
+    vector<pair<Song*, float>> RWR(const string &genre, int k =15);
 };
