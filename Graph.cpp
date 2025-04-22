@@ -12,6 +12,7 @@
 #include <set>
 #include <queue>
 #include <random>
+#include <unordered_set>
 
 vector<float> Graph::GetFeatureVector(const Song& song) {
     return {
@@ -260,6 +261,7 @@ vector<pair<Song*, float>> Graph::Dijsktra(string genre, int k){
     uniform_int_distribution<> distr(0, 999);
     int startIndex = distr(gen);
 //    cout << "SONG : " << genreMap[genre][startIndex].track_name << endl;
+    unordered_set<int> added;
     vector<vector<float>> similarityMatrix = adjacencyMatrices.at(genre);
     int n = similarityMatrix.size();
     vector<float> dist(n, numeric_limits<float>::infinity());
@@ -277,8 +279,9 @@ vector<pair<Song*, float>> Graph::Dijsktra(string genre, int k){
         if (visited[u]) continue;
         visited[u] = true;
 
-        if (u != startIndex){
+        if (u != startIndex && !added.contains(u)){
             result.emplace_back(u, cost);
+            added.insert(u);
         }
 
         for (int v = 0; v < n; ++v){
@@ -376,14 +379,19 @@ vector<pair<Song*, float>> Graph::RWR(string genre, int k) {
 
     // Extract results
     vector<Song>& songs = genreMap[genre];
+    unordered_set<int> seen;
     vector<pair<Song*, float>> topK;
     while (!pq.empty()) {
         auto [score, idx] = pq.top();
         pq.pop();
-        topK.emplace_back(&songs[idx], score);
+        if (seen.insert(idx).second) {  // only insert if not seen yet
+            topK.emplace_back(&songs[idx], score);
+        }
     }
 
     reverse(topK.begin(), topK.end()); // descending order
-    topK.push_back(make_pair(&genreMap[genre][startIndex], 0));
+    if (seen.insert(startIndex).second) {
+        topK.emplace_back(&songs[startIndex], 0.0f);
+    }
     return topK;
 }
