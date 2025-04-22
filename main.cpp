@@ -19,11 +19,7 @@
 #include "FL/Fl_Text_Display.H"
 #include "FL/Fl_Text_Editor.H"
 using namespace std;
-//TODO:
-//replace multiline output w text display
-//add timer for differnt algos
-//implement actual functionality
-//add selector for attributes
+
 
 // Widget pointers
 Fl_Select_Browser* menu_choice;
@@ -47,11 +43,12 @@ Fl_Check_Button* acoust;
 Fl_Check_Button* tempo;
 
 bool gif_playing = true;
-bool a = true;
+bool a = true; //makes head rotate slower than title
 bool random = true;
 int rescount = 0;
 vector<bool> metrics(8,0);
 
+//callback for metric selection
 void check_callback(Fl_Widget*, void*) {
     metrics[0] = (dance->value() != 0);
     metrics[1] = (energy->value() != 0);
@@ -63,31 +60,29 @@ void check_callback(Fl_Widget*, void*) {
     metrics[7] = (tempo->value() != 0);
 }
 
-// Custom timer callback for GIF animation
+//callback for GIF
 void gif_timer(void*) {
     if (gif_playing && title_gif && !title_gif->fail()) {
-        // Advance animation frame WITHOUT automatic redraw
+        // Advance animation frame
         title_gif->next();
         if(a) {
             head_gif->next();
         }
         a = !a;
-        // Force redraw ONLY the GIF box area
         title_box->redraw();
         head_box->redraw();
-        // Maintain animation speed (30 FPS)
-        Fl::repeat_timeout(0.04, gif_timer);
+        Fl::repeat_timeout(0.06, gif_timer);
     }
 }
-// Start button callback
+// Start callback
 void start_callback(Fl_Widget*, void*) {
-    // Get selected menu item
+    //get selected menu item
     const int selection = menu_choice->value();
     const char* selected = menu_choice->text(selection);  // Get text directly from browser
 
-    // Get toggle state
+    //get toggle state
     const char* state = toggle_on->value() ? "Dijkstra's" : "Random Walk";  // Updated state labels
-    // random = true is dijsktra
+    //random = true is random walk
     // Update output
     std::string current = output_buffer->text() ? output_buffer->text() : "";
     current += "Selected: " + std::string(selected) + "\n";
@@ -95,6 +90,7 @@ void start_callback(Fl_Widget*, void*) {
     current += "Start button pressed!\n\n";
     output_buffer->text(current.c_str());
     ifstream file("dataset.csv");
+    //run dijkstra's
     if (!random){
         Graph graph;
         graph.LoadGenreFromCSV(file, selected, metrics);
@@ -108,6 +104,7 @@ void start_callback(Fl_Widget*, void*) {
         }
         current += "\n";
     }
+    //run random walk
     if (random)
     {
         Graph graph;
@@ -123,10 +120,11 @@ void start_callback(Fl_Widget*, void*) {
         }
         current += "\n";
     }
+    //output text
     output_buffer->text(current.c_str());
 }
 
-// Toggle buttons callback
+//algo buttons callback
 void toggle_callback(Fl_Widget*, void*) {
     // Determine active state
     const char* state = toggle_on->value() ? "Dijkstra's" : "Random Walk";
@@ -135,7 +133,7 @@ void toggle_callback(Fl_Widget*, void*) {
     current += "Algorithm switched to " + std::string(state) + "\n\n";
     output_buffer->text(current.c_str());
 }
-
+//music opinion callback
 void genre_callback(Fl_Widget* widget, void*) {
     Fl_Select_Browser* browser = static_cast<Fl_Select_Browser*>(widget);
     const int selection = browser->value();
@@ -145,21 +143,19 @@ void genre_callback(Fl_Widget* widget, void*) {
         vector<string> comments = {"{}? good choice, i guess", "i never was a fan of {}", "pshhh, {}? what are you, five?",
         "you know that one song that goes \n\"bum bum baaah nuh\"? classic!", "booooo!", "not a big fan of {} personally", "ehhh {} is ok imo",
         "now {} is just bad taste", "ooh i like {}", "boooooooring", "*sighs smugly*", "need to come up with a new\ncatchphrase"};
-
+        //idk why clion doesn't like this - it works perfectly
         string snarky_comment = vformat(comments[rescount], make_format_args(genre));
         rescount++;
         if(rescount >= comments.size()) {
             rescount = 0;
         }
         text_buffer->text(snarky_comment.c_str());  // Replace content
-        // Optional: Append instead of replace
-        // text_buffer->append("\nSelected: ");
-        // text_buffer->append(selected);
     }
 }
 
 
 int main(int argc, char** argv) {
+    //get data
     ifstream file("dataset.csv");
     if (!file.is_open()) {
         cerr << "Could not open dataset.csv\n";
@@ -167,16 +163,19 @@ int main(int argc, char** argv) {
     }
     string genre;
     Graph graph;
+    //get list of genres for selector
     set<string> genre_list = graph.FindGenres(file);
 
-    // Create main window
+    //create main window
     int w = 700;
     int h = 900;
-    const auto window = new Fl_Window(w, h, "Control Panel");
+    const auto window = new Fl_Window(w, h, "Seekify");
     window->begin();
     window->color(FL_LIGHT1);
+    //double buffering and full color
     Fl::visual(FL_DOUBLE|FL_RGB);
 
+    //load gifs
     title_gif = new Fl_Anim_GIF_Image("superseekify.gif");
     head_gif = new Fl_Anim_GIF_Image("head.gif");
     if (title_gif && !title_gif->fail()) {
@@ -186,30 +185,30 @@ int main(int argc, char** argv) {
         title_box->color(FL_LIGHT1);
         title_box->image(title_gif);
         title_gif->resize(1.75);
-        title_gif->start();  // Required to initialize frames
-        title_gif->stop();   // Immediately stop auto-play
+        title_gif->start();  //initialize frames
+        title_gif->stop();   //stop auto-play
         head_box = new Fl_Box(360, 650, 250, 300);
         head_box->box(FL_NO_BOX);
         head_box->align(FL_ALIGN_CLIP);
         head_box->color(FL_LIGHT1);
         head_box->image(head_gif);
         head_gif->resize(0.8);
-        head_gif->start();  // Required to initialize frames
-        head_gif->stop();   // Immediately stop auto-play
+        head_gif->start();
+        head_gif->stop();
 
 
-        // Start custom animation timer
-        Fl::add_timeout(0.04, gif_timer, title_gif);  // 30 FPS
+        //start custom animation callback
+        Fl::add_timeout(0.06, gif_timer, title_gif);
     }
 
-    // Create scrollable dropdown (Fl_Select_Browser)
+    //scrollable dropdown
     menu_choice = new Fl_Select_Browser(20, 20, 200, 200, "Choose a Genre:");  // X, Y, W, H
     menu_choice->callback(genre_callback);
-    menu_choice->has_scrollbar(Fl_Browser_::VERTICAL_ALWAYS);  // Force vertical scrollbar
-    menu_choice->textsize(12);  // Set font size
-    menu_choice->align(FL_ALIGN_TOP_LEFT);  // Label alignment
+    menu_choice->has_scrollbar(Fl_Browser_::VERTICAL_ALWAYS);
+    menu_choice->textsize(12);
+    menu_choice->align(FL_ALIGN_TOP_LEFT);
 
-    // Populate with genres
+    //populate with genres
     for(const string& s : genre_list) {
         menu_choice->add(s.c_str());
     }
@@ -217,16 +216,13 @@ int main(int argc, char** argv) {
         menu_choice->select(1);
         menu_choice->topline(1);
     }
-    // Set visible items (calculated based on height and text size)
-    const int item_height = menu_choice->textsize() + 8;  // Text size + padding
-    const int visible_items = 200 / item_height;  // 200 is the browser height
-    menu_choice->set_visible_focus();  // Enable keyboard navigation
+    menu_choice->set_visible_focus();
 
-    // Create start button
+    //start button
     auto* start_btn = new Fl_Button(20, 775, 80, 30, "Start");
     start_btn->callback(start_callback);
 
-    // Create algorithm toggle buttons
+    //algorithm toggle buttons
     Fl_Box* alg_box = new Fl_Box(230, 25, 120, 80, "Algorithm:");
     alg_box->align(FL_ALIGN_TOP_LEFT);
     alg_box->box(FL_UP_BOX);
@@ -234,18 +230,20 @@ int main(int argc, char** argv) {
     toggle_off = new Fl_Round_Button(235, 60, 120, 30, "Random Walk");
     toggle_on->type(FL_RADIO_BUTTON);
     toggle_off->type(FL_RADIO_BUTTON);
-    toggle_off->value(1);  // Default to Random Walk
+    toggle_off->value(1);
     toggle_on->callback(toggle_callback);
     toggle_off->callback(toggle_callback);
 
-    // Create output text box
-    output_box = new Fl_Text_Display(20, 250, 300, 500);  // Adjusted position
+    //output text box
+    output_box = new Fl_Text_Display(20, 250, 300, 500, "Recommendations:");
+    output_box->align(FL_ALIGN_TOP_LEFT);
     output_buffer = new Fl_Text_Buffer();
     output_box->buffer(output_buffer);
     output_box->textfont(FL_COURIER);
     output_box->textsize(12);
     output_buffer->text("System Ready\n\n");
 
+    //opinions text box
     Fl_Box* text_up = new Fl_Box(350, 615, 270, 70, "Official Music Opinions:");
     text_up->align(FL_ALIGN_TOP_LEFT);
     text_up->box(FL_UP_BOX);
@@ -253,6 +251,7 @@ int main(int argc, char** argv) {
     text_buffer = new Fl_Text_Buffer();
     text_box->buffer(text_buffer);
 
+    //metric selection
     Fl_Box* check_box = new Fl_Box(360, 280, 180, 205, "Choose songs with similar:");
     check_box->box(FL_UP_BOX);
     check_box->align(FL_ALIGN_TOP_LEFT);
@@ -276,6 +275,6 @@ int main(int argc, char** argv) {
 
     window->end();
     window->show();
-
+    //waits repeatedly until a callback is needed (ie - button press/mouse click)
     return Fl::run();
 }

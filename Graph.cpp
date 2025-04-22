@@ -28,8 +28,12 @@ vector<float> Graph::GetFeatureVector(const Song& song) {
 
 float Graph::EuclideanDistance(const vector<float>& a, const vector<float>& b, vector<bool> &metrics) {
     float sum = 0.0f;
+    bool no_selection = true;
+    for(bool b : metrics) {
+        if(b) no_selection = false;
+    }
     for (size_t i = 0; i < a.size(); ++i) {
-        if (metrics[i]) {
+        if (metrics[i] or no_selection) {
             const float diff = a[i] - b[i];
             sum += diff * diff;
         }
