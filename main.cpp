@@ -21,7 +21,6 @@
 
 using namespace std;
 
-// Widget pointers
 Fl_Select_Browser* menu_choice;
 Fl_Text_Buffer* output_buffer;
 Fl_Text_Display* output_box;
@@ -46,7 +45,7 @@ bool gif_playing = true;
 bool a = true;
 bool random = true;
 size_t rescount = 0;
-vector<bool> metrics(8, false);
+vector metrics(8, false);
 
 void check_callback(Fl_Widget*, void*) {
     metrics[0] = dance->value();

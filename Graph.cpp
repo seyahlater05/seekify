@@ -1,8 +1,3 @@
-//
-// Created by sam51 on 4/19/2025.
-//
-
-#include "Graph.h"
 #include <sstream>
 #include <iostream>
 #include <algorithm>
@@ -13,6 +8,8 @@
 #include <queue>
 #include <random>
 #include <unordered_set>
+
+#include "Graph.h"
 
 vector<float> Graph::GetFeatureVector(const Song& song) {
     return {
@@ -137,25 +134,25 @@ void Graph::LoadGenreFromCSV(ifstream& file, const string& target_genre, vector<
 
         string rest = line.substr(firstComma + 1);
         vector<string> fields;
-        string current;
+        string field;
         bool inQuotes = false;
 
         for (size_t i = 0; i < rest.size(); ++i) {
             if (const char c = rest[i]; c == '"') {
                 if (inQuotes && i + 1 < rest.size() && rest[i + 1] == '"') {
-                    current += '"';
+                    field += '"';
                     ++i;  // Skip the next character, which is the escaped quote
                 } else {
                     inQuotes = !inQuotes;
                 }
             } else if (c == ',' && !inQuotes) {
-                fields.push_back(current);
-                current.clear();
+                fields.push_back(field);
+                field.clear();
             } else {
-                current += c;
+                field += c;
             }
         }
-        fields.push_back(current);
+        fields.push_back(field);
 
         if (fields.size() < 20 || fields[19] != target_genre) continue;
 
@@ -215,16 +212,16 @@ set<string> Graph::FindGenres(ifstream& file) {
         for (size_t i = 0; i < line.size(); ++i) {
             if (const char c = line[i]; c == '"') {
                 if (inQuotes && i + 1 < line.size() && line[i + 1] == '"') {
-                    current += '"';  // Add the escaped quote to the current string
-                    ++i;  // Skip the next character, which is the second quote in `""`
+                    current += '"';
+                    ++i;
                 } else {
-                    inQuotes = !inQuotes;  // Toggle the quote state
+                    inQuotes = !inQuotes;
                 }
             } else if (c == ',' && !inQuotes) {
-                result.push_back(current);  // Add the current field to the result
-                current.clear();  // Clear the current field
+                result.push_back(current);
+                current.clear();
             } else {
-                current += c;  // Add the character to the current field
+                current += c;
             }
         }
         result.push_back(current);
