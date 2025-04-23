@@ -5,6 +5,8 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_executable(seekify main.cpp Graph.cpp)
 set(FLTK_SOURCE_DIR "${PROJECT_SOURCE_DIR}/fltk-1.4.2-source/fltk/fltk-1.4.2")
+target_compile_options(seekify PRIVATE -static-libstdc++ -static-libgcc)
+target_link_options(seekify PRIVATE -static -static-libgcc -static-libstdc++ -pthread)
 add_subdirectory(${FLTK_SOURCE_DIR})
 include_directories("${FLTK_SOURCE_DIR}/CMake")
 target_link_libraries(seekify PRIVATE fltk::fltk fltk_images)
